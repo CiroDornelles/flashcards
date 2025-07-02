@@ -61,21 +61,27 @@ pip install genanki
 
 Os flashcards serão gerados a partir dos arquivos CSV usando scripts Python que utilizam a `genanki`. Isso garante que o formato final (`.apkg`) seja compatível com o Anki e que a estrutura (Model, Note, Deck) seja padronizada.
 
-### 4.4. Processo de Criação de Flashcards
+### 4.4. Processo de Criação e Validação de Flashcards
 
-Para criar novos arquivos CSV de flashcards, siga o seguinte fluxo:
+Para garantir a execução correta e segura dos scripts, **TODOS** os scripts auxiliares do projeto (como `process_flashcard_csv.py`) devem ser executados através do wrapper `run_lpi_script.sh`, localizado na raiz do repositório `flashcards`.
 
-1.  **Criação do Conteúdo Bruto:** O agente deve gerar o conteúdo dos flashcards (pergunta e resposta) e salvá-lo em um arquivo temporário com o sufixo `-naovalidado.csv` (ex: `bash-naovalidado.csv`). Este arquivo pode ser criado diretamente pelo agente, sem preocupações com o escape de caracteres neste momento.
+O fluxo de trabalho é o seguinte:
 
-2.  **Processamento e Validação:** Utilize o script `process_flashcard_csv.py` para ler o arquivo `-naovalidado.csv`, garantir o escape correto de aspas e vírgulas, e reescrever o conteúdo no arquivo CSV final (ex: `bash.csv`). O script também é responsável por apagar o arquivo `-naovalidado.csv` após o processamento bem-sucedido.
+1.  **Criação do Conteúdo Bruto:** Gere o conteúdo dos flashcards (pergunta e resposta) e salve-o em um arquivo temporário com o sufixo `-naovalidado.csv` dentro do diretório do tópico correspondente (ex: `lpi/05_Shells_Scripting/bash-naovalidado.csv`).
 
-    **Exemplo de uso do `process_flashcard_csv.py`:**
+2.  **Processamento e Validação via Wrapper:** Execute o script de processamento usando o wrapper `run_lpi_script.sh`. O wrapper cuida de navegar para o diretório correto (`lpi/`) e executar o script Python.
+
+    **Exemplo de uso OBRIGATÓRIO:**
     ```bash
-    python3 /home/ciro/Documentos/Projetos/lpi_1_flashcards/process_flashcard_csv.py /home/ciro/Documentos/Projetos/lpi_1_flashcards/05_Shells_Scripting
+    # A partir da raiz do projeto 'flashcards'
+    ./run_lpi_script.sh process_flashcard_csv.py 05_Shells_Scripting/
     ```
-    (O script `process_flashcard_csv.py` processará todos os arquivos `*-naovalidado.csv` encontrados no diretório especificado.)
+    Este comando irá:
+    a. Navegar para o diretório `flashcards/lpi`.
+    b. Executar `python3 process_flashcard_csv.py 05_Shells_Scripting/`.
+    c. O script `process_flashcard_csv.py` então processará todos os arquivos `*-naovalidado.csv` encontrados no diretório `05_Shells_Scripting/`.
 
-Este processo garante que todos os arquivos CSV de flashcards estejam no formato correto e prontos para serem utilizados na geração dos decks Anki.
+Este método centralizado previne erros de caminho e garante que a automação funcione de forma consistente.
 
 ## 5. Progresso Detalhado: LPIC-1
 
@@ -109,20 +115,34 @@ Este processo garante que todos os arquivos CSV de flashcards estejam no formato
 - **Sub-tópicos (16/16):** `ls.csv`, `cp.csv`, `mv.csv`, `rm.csv`, `mkdir.csv`, `rmdir.csv`, `touch.csv`, `find.csv`, `xargs.csv`, `dd.csv`, `ln.csv`, `df.csv`, `du.csv`, `mount.csv`, `umount.csv`, `fdisk.csv`
 
 ### **Tópico 105: Shells e Scripting**
-- **Status:** `[Exaustivo]` ✅
-- **Sub-tópicos (1/X):**
-  - `bash.csv`
+- **Status:** `[Em Progresso]` ⏳
+- **Sub-tópicos (11/16):**
+  - `bash.csv` ✅
+  - `shell_startup_files.csv` ✅
+  - `command_parsing.csv` ✅
+  - `if_conditional.csv` ✅
+  - `for_loop.csv` ✅
+  - `while_until_loop.csv` ✅
+  - `functions.csv` ✅
+  - `shell_variables.csv` ✅
+  - `special_parameters.csv` ✅
+  - `expansion.csv` ✅
+  - `quoting.csv` ✅
+  - `redirection.csv` ⏳
+  - `shell_startup_files.csv`
+  - `command_parsing.csv`
   - `if_conditional.csv`
   - `for_loop.csv`
   - `while_until_loop.csv`
-  - `redirection.csv`
   - `functions.csv`
-  - `quoting.csv`
-  - `shell_builtins.csv`
-  - `job_control.csv`
-  - `arithmetic_evaluation.csv`
-  - `expansion.csv`
   - `shell_variables.csv`
+  - `special_parameters.csv`
+  - `expansion.csv`
+  - `quoting.csv`
+  - `redirection.csv`
+  - `job_control.csv`
+  - `shell_builtins.csv`
+  - `arithmetic_evaluation.csv`
   - `history.csv`
 
 ### **Tópico 106: Interfaces e Desktops**
@@ -145,8 +165,8 @@ Este processo garante que todos os arquivos CSV de flashcards estejam no formato
 
 ## 6. Próximos Passos (Fila de Trabalho)
 
-1.  **Tarefa Imediata:** Iniciar o **Tópico 105 (Shells e Scripting)**.
-    - `bash` ⬅️ **VOCÊ ESTÁ AQUI**
+1.  **Tarefa Imediata:** Revisar e completar o **Tópico 105 (Shells e Scripting)** conforme o PUAV.
+    - `bash.csv` ⬅️ **VOCÊ ESTÁ AQUI**
 
 ---
 *Este documento é dinâmico e deve ser atualizado ao final de cada sessão de trabalho.*

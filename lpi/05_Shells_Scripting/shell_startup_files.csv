@@ -1,0 +1,13 @@
+"pergunta","resposta"
+"O que é um shell de login (login shell)?","É o primeiro processo que executa sob seu ID de usuário quando você faz login para uma sessão de terminal. É o shell cuja primeira letra do argumento zero é um hífen, ou que é iniciado com a opção `--login`."
+"Qual a principal característica de um shell de login em termos de arquivos de inicialização?","Um shell de login lê arquivos de configuração de todo o sistema e específicos do usuário para configurar o ambiente, como `/etc/profile` e `~/.bash_profile`."
+"Qual a ordem de leitura dos arquivos de inicialização para um shell de login interativo?","1. `/etc/profile` (se existir).
+2. Tenta ler `~/.bash_profile`, `~/.bash_login`, e `~/.profile`, nessa ordem, e executa o primeiro que encontrar e for legível."
+"O que é um shell não-login (non-login shell)?","É um shell iniciado por um programa sem a opção `--login`, como quando você abre uma nova janela de terminal em um ambiente gráfico já logado."
+"Qual arquivo de inicialização é lido por um shell interativo que não é um shell de login?","Ele lê e executa comandos de `~/.bashrc`, se o arquivo existir e for legível."
+"Para que serve o arquivo `/etc/profile`?","Serve para definir variáveis de ambiente e funções globais para todos os usuários do sistema."
+"Para que serve o arquivo `~/.bash_profile`?","É o arquivo de configuração pessoal para shells de login. É comumente usado para definir o `PATH`, exportar variáveis e definir aliases que só são necessários na sessão principal."
+"Por que muitos `~/.bash_profile` contêm um código para chamar o `~/.bashrc`?","Para garantir que as configurações definidas em `.bashrc` (como aliases e funções) também estejam disponíveis no shell de login, já que `.bashrc` não é lido por padrão por shells de login."
+"Qual o propósito do arquivo `~/.bash_logout`?","Este arquivo é lido e executado quando um shell de login sai. É comumente usado para limpar a tela ou remover arquivos temporários."
+"O que é um shell não-interativo?","É um shell que não está conectado a um terminal, como quando um script shell é executado."
+"Quais arquivos de inicialização um shell não-interativo lê?","Ele não lê os arquivos de inicialização padrão (`.bashrc`, `.bash_profile`, etc.). No entanto, ele verifica a variável de ambiente `BASH_ENV` e, se estiver definida, executa o arquivo apontado por ela."
