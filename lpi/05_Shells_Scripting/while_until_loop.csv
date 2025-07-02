@@ -1,6 +1,0 @@
-"pergunta","resposta"
-"Qual a sintaxe básica de um loop `while` no Bash?","A sintaxe básica é `while LISTA-1; do LISTA-2; done`."
-"Como funciona um loop `while` no Bash?","O comando `while` executa continuamente a `LISTA-2` enquanto o último comando na `LISTA-1` retornar um status de saída zero (sucesso)."
-"Qual a sintaxe básica de um loop `until` no Bash?","A sintaxe básica é `until LISTA-1; do LISTA-2; done`."
-"Como funciona um loop `until` no Bash?","O comando `until` é idêntico ao comando `while`"," exceto que o teste é negado: a `LISTA-2` é executada enquanto o último comando na `LISTA-1` retornar um status de saída diferente de zero (falha)."
-"Qual o status de saída de um loop `while` ou `until` no Bash?","O status de saída dos comandos `while` e `until` é o status de saída do último comando executado na `LISTA-2`"," ou zero se nenhum foi executado."

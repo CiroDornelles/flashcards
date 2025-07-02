@@ -1,21 +1,21 @@
 pergunta,resposta
-"Qual é o propósito principal do comando `apt`?","Fornecer uma interface de linha de comandos de alto nível e amigável para o sistema de gestão de pacotes Debian, destinada ao utilizador final."
-"Qual comando `apt` é usado para descarregar a informação mais recente sobre os pacotes de todos os repositórios configurados?","`apt update`"
-"O que faz o comando `apt update`?","Sincroniza os ficheiros de índice de pacotes a partir das suas fontes. Isto atualiza a base de dados local com as versões mais recentes dos pacotes e suas dependências."
-"Qual comando `apt` instala as atualizações disponíveis para todos os pacotes atualmente instalados?","`apt upgrade`"
-"Qual é a principal característica do `apt upgrade`?","Atualiza os pacotes para as suas versões mais recentes, mas nunca remove pacotes existentes para resolver dependências. Se uma atualização exigir a remoção de um pacote, ela não será executada."
-"Qual é a diferença entre `apt upgrade` e `apt full-upgrade`?","`apt upgrade` nunca remove pacotes. `apt full-upgrade` pode remover pacotes instalados se for necessário para resolver conflitos de dependência e completar a atualização do sistema."
-"Como se instala um novo pacote usando `apt`?","`apt install <nome_do_pacote>`"
-"É possível instalar uma versão específica de um pacote com `apt install`?","Sim, usando a sintaxe `apt install <nome_do_pacote>=<versão>` ou `apt install <nome_do_pacote>/<lançamento>` (ex: /stable, /testing)."
-"Como se remove um pacote com `apt`, mantendo os seus ficheiros de configuração?","`apt remove <nome_do_pacote>`"
-"Como se remove um pacote com `apt`, incluindo os seus ficheiros de configuração?","`apt purge <nome_do_pacote>`"
-"Qual comando `apt` é usado para remover pacotes que foram instalados automaticamente para satisfazer dependências e que já não são necessários?","`apt autoremove`"
-"Para que serve o comando `apt search <termo>`?","Procura por um termo (usando expressão regular) nos nomes e descrições de todos os pacotes disponíveis."
-"Como se obtém informação detalhada sobre um pacote (versão, dependências, descrição, etc.) usando `apt`?","`apt show <nome_do_pacote>`"
-"Qual comando `apt` mostra uma lista de pacotes?","`apt list`"
-"Como se pode usar `apt list` para ver apenas os pacotes instalados?","`apt list --installed`"
-"Como se pode usar `apt list` para ver apenas os pacotes que podem ser atualizados?","`apt list --upgradeable`"
-"Como se pode usar `apt list` para ver todas as versões disponíveis de um pacote?","`apt list --all-versions <nome_do_pacote>`"
-"Qual é a função do comando `apt edit-sources`?","Abre os ficheiros `sources.list` no editor de texto padrão para edição, realizando verificações básicas de sintaxe ao guardar."
-"Por que é recomendado usar `apt-get` ou `apt-cache` em scripts em vez de `apt`?","Porque `apt-get` e `apt-cache` mantêm uma interface de saída e comportamento mais estável e compatível com versões anteriores, enquanto `apt` é otimizado para uso interativo e a sua saída pode mudar entre versões."
-"O que faz o comando `apt satisfy`?","Satisfaz uma string de dependências complexas, similar às encontradas em `Build-Depends` de pacotes fonte, incluindo a gestão de conflitos."
+Qual é o propósito principal do comando `apt`?,"Fornecer uma interface de linha de comandos de alto nível e amigável para o sistema de gestão de pacotes Debian, destinada ao utilizador final."
+Qual comando `apt` é usado para descarregar a informação mais recente sobre os pacotes de todos os repositórios configurados?,`apt update`
+O que faz o comando `apt update`?,Sincroniza os ficheiros de índice de pacotes a partir das suas fontes. Isto atualiza a base de dados local com as versões mais recentes dos pacotes e suas dependências.
+Qual comando `apt` instala as atualizações disponíveis para todos os pacotes atualmente instalados?,`apt upgrade`
+Qual é a principal característica do `apt upgrade`?,"Atualiza os pacotes para as suas versões mais recentes, mas nunca remove pacotes existentes para resolver dependências. Se uma atualização exigir a remoção de um pacote, ela não será executada."
+Qual é a diferença entre `apt upgrade` e `apt full-upgrade`?,`apt upgrade` nunca remove pacotes. `apt full-upgrade` pode remover pacotes instalados se for necessário para resolver conflitos de dependência e completar a atualização do sistema.
+Como se instala um novo pacote usando `apt`?,`apt install <nome_do_pacote>`
+É possível instalar uma versão específica de um pacote com `apt install`?,"Sim, usando a sintaxe `apt install <nome_do_pacote>=<versão>` ou `apt install <nome_do_pacote>/<lançamento>` (ex: /stable, /testing)."
+"Como se remove um pacote com `apt`, mantendo os seus ficheiros de configuração?",`apt remove <nome_do_pacote>`
+"Como se remove um pacote com `apt`, incluindo os seus ficheiros de configuração?",`apt purge <nome_do_pacote>`
+Qual comando `apt` é usado para remover pacotes que foram instalados automaticamente para satisfazer dependências e que já não são necessários?,`apt autoremove`
+Para que serve o comando `apt search <termo>`?,Procura por um termo (usando expressão regular) nos nomes e descrições de todos os pacotes disponíveis.
+"Como se obtém informação detalhada sobre um pacote (versão, dependências, descrição, etc.) usando `apt`?",`apt show <nome_do_pacote>`
+Qual comando `apt` mostra uma lista de pacotes?,`apt list`
+Como se pode usar `apt list` para ver apenas os pacotes instalados?,`apt list --installed`
+Como se pode usar `apt list` para ver apenas os pacotes que podem ser atualizados?,`apt list --upgradeable`
+Como se pode usar `apt list` para ver todas as versões disponíveis de um pacote?,`apt list --all-versions <nome_do_pacote>`
+Qual é a função do comando `apt edit-sources`?,"Abre os ficheiros `sources.list` no editor de texto padrão para edição, realizando verificações básicas de sintaxe ao guardar."
+Por que é recomendado usar `apt-get` ou `apt-cache` em scripts em vez de `apt`?,"Porque `apt-get` e `apt-cache` mantêm uma interface de saída e comportamento mais estável e compatível com versões anteriores, enquanto `apt` é otimizado para uso interativo e a sua saída pode mudar entre versões."
+O que faz o comando `apt satisfy`?,"Satisfaz uma string de dependências complexas, similar às encontradas em `Build-Depends` de pacotes fonte, incluindo a gestão de conflitos."

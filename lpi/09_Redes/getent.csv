@@ -1,17 +1,17 @@
 pergunta,resposta
-"Qual o propósito do comando `getent`?","Obtém entradas de bancos de dados suportados pelas bibliotecas Name Service Switch (NSS), configuradas em `/etc/nsswitch.conf`."
-"Como o `getent` é usado para resolução de nomes de host?","`getent hosts <nome_do_host_ou_ip>`"
-"Qual a diferença entre `getent hosts` e uma consulta DNS como `dig` ou `host`?","`getent` consulta as fontes na ordem especificada em `/etc/nsswitch.conf`, que pode incluir arquivos locais (`/etc/hosts`), DNS, e outros, enquanto `dig`/`host` consultam primariamente o DNS."
-"Como usar `getent` para exibir o conteúdo do arquivo `/etc/hosts` (se 'files' for a primeira fonte em nsswitch.conf)?","`getent hosts`"
-"Como usar `getent` para resolver um endereço IP para um nome de host?","`getent hosts <endereço_ip>` (ex: `getent hosts 8.8.8.8`)"
-"Como usar `getent` para resolver um nome de host para um endereço IP?","`getent hosts <nome_do_host>` (ex: `getent hosts www.google.com`)"
-"Qual banco de dados do `getent` é usado para consultar informações de rede?","`networks`"
-"Como usar `getent` para exibir o banco de dados de redes (geralmente de `/etc/networks`)?","`getent networks`"
-"Qual banco de dados do `getent` é usado para consultar protocolos de rede?","`protocols`"
-"Como usar `getent` para exibir o banco de dados de protocolos (de `/etc/protocols`)?","`getent protocols`"
-"Qual banco de dados do `getent` é usado para consultar serviços de rede e suas portas?","`services`"
-"Como usar `getent` para encontrar a porta de um serviço específico (ex: http)?","`getent services http`"
-"Qual arquivo de configuração determina a ordem de consulta dos bancos de dados para o `getent`?","`/etc/nsswitch.conf`"
-"O que um código de saída `0` significa para o `getent`?","Comando completado com sucesso."
-"O que um código de saída `2` significa para o `getent`?","Uma ou mais chaves fornecidas não foram encontradas no banco de dados."
+Qual o propósito do comando `getent`?,"Obtém entradas de bancos de dados suportados pelas bibliotecas Name Service Switch (NSS), configuradas em `/etc/nsswitch.conf`."
+Como o `getent` é usado para resolução de nomes de host?,`getent hosts <nome_do_host_ou_ip>`
+Qual a diferença entre `getent hosts` e uma consulta DNS como `dig` ou `host`?,"`getent` consulta as fontes na ordem especificada em `/etc/nsswitch.conf`, que pode incluir arquivos locais (`/etc/hosts`), DNS, e outros, enquanto `dig`/`host` consultam primariamente o DNS."
+Como usar `getent` para exibir o conteúdo do arquivo `/etc/hosts` (se 'files' for a primeira fonte em nsswitch.conf)?,`getent hosts`
+Como usar `getent` para resolver um endereço IP para um nome de host?,`getent hosts <endereço_ip>` (ex: `getent hosts 8.8.8.8`)
+Como usar `getent` para resolver um nome de host para um endereço IP?,`getent hosts <nome_do_host>` (ex: `getent hosts www.google.com`)
+Qual banco de dados do `getent` é usado para consultar informações de rede?,`networks`
+Como usar `getent` para exibir o banco de dados de redes (geralmente de `/etc/networks`)?,`getent networks`
+Qual banco de dados do `getent` é usado para consultar protocolos de rede?,`protocols`
+Como usar `getent` para exibir o banco de dados de protocolos (de `/etc/protocols`)?,`getent protocols`
+Qual banco de dados do `getent` é usado para consultar serviços de rede e suas portas?,`services`
+Como usar `getent` para encontrar a porta de um serviço específico (ex: http)?,`getent services http`
+Qual arquivo de configuração determina a ordem de consulta dos bancos de dados para o `getent`?,`/etc/nsswitch.conf`
+O que um código de saída `0` significa para o `getent`?,Comando completado com sucesso.
+O que um código de saída `2` significa para o `getent`?,Uma ou mais chaves fornecidas não foram encontradas no banco de dados.
 "Além de `hosts`, `networks`, `protocols` e `services`, quais outros bancos de dados comuns o `getent` pode consultar?","`passwd` (usuários), `group` (grupos), `shadow` (senhas de sombra)."

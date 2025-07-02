@@ -1,16 +1,16 @@
 pergunta,resposta
-"Qual o propósito do comando `mkswap`?","Ele inicializa (formata) uma partição ou arquivo para ser usado como área de troca (swap) do Linux."
-"Como formatar a partição `/dev/sdb2` como uma área de swap?","`mkswap /dev/sdb2`"
-"Qual o tipo de partição hexadecimal que tradicionalmente identifica uma partição de swap para scripts de instalação?","`82` (Linux swap)"
-"Qual comando deve ser executado após o `mkswap` para que o sistema comece a usar a nova área de swap?","`swapon`"
-"Qual opção do `mkswap` verifica a partição em busca de blocos defeituosos (bad blocks) antes da formatação?","`-c` ou `--check`"
-"Qual opção do `mkswap` permite definir um rótulo (label) para a área de swap?","`-L <rotulo>`"
-"Por que definir um label ou UUID para a área de swap é útil?","Permite que a área de swap seja referenciada no `/etc/fstab` pelo seu label ou UUID, em vez do nome do dispositivo, o que é mais robusto."
-"Qual opção do `mkswap` permite especificar um UUID para a área de swap?","`-U <UUID>`"
-"É possível criar uma área de swap em um arquivo em vez de uma partição?","Sim, o `mkswap` pode ser executado em um arquivo (ex: `mkswap /swapfile`)."
-"Qual comando pode ser usado para criar um arquivo de 1GB para ser usado como swap?","`dd if=/dev/zero of=/swapfile bs=1M count=1024`"
-"Qual opção do `mkswap` força a operação, mesmo que seja potencialmente perigosa (ex: sobrescrever uma tabela de partição)?","`-f` ou `--force`"
-"O `mkswap` apaga o primeiro bloco do dispositivo?","Sim, para tornar qualquer sistema de arquivos anterior invisível, mas ele se recusa a fazer isso se detectar uma tabela de partição (disklabel), a menos que `-f` seja usado."
-"Qual arquivo de configuração lista as áreas de swap que devem ser ativadas durante o boot?","`/etc/fstab`"
-"Qual comando ativa todas as áreas de swap listadas no `/etc/fstab`?","`swapon -a`"
-"Como o kernel Linux exibe as áreas de swap que estão atualmente em uso?","Através do arquivo virtual `/proc/swaps`."
+Qual o propósito do comando `mkswap`?,Ele inicializa (formata) uma partição ou arquivo para ser usado como área de troca (swap) do Linux.
+Como formatar a partição `/dev/sdb2` como uma área de swap?,`mkswap /dev/sdb2`
+Qual o tipo de partição hexadecimal que tradicionalmente identifica uma partição de swap para scripts de instalação?,`82` (Linux swap)
+Qual comando deve ser executado após o `mkswap` para que o sistema comece a usar a nova área de swap?,`swapon`
+Qual opção do `mkswap` verifica a partição em busca de blocos defeituosos (bad blocks) antes da formatação?,`-c` ou `--check`
+Qual opção do `mkswap` permite definir um rótulo (label) para a área de swap?,`-L <rotulo>`
+Por que definir um label ou UUID para a área de swap é útil?,"Permite que a área de swap seja referenciada no `/etc/fstab` pelo seu label ou UUID, em vez do nome do dispositivo, o que é mais robusto."
+Qual opção do `mkswap` permite especificar um UUID para a área de swap?,`-U <UUID>`
+É possível criar uma área de swap em um arquivo em vez de uma partição?,"Sim, o `mkswap` pode ser executado em um arquivo (ex: `mkswap /swapfile`)."
+Qual comando pode ser usado para criar um arquivo de 1GB para ser usado como swap?,`dd if=/dev/zero of=/swapfile bs=1M count=1024`
+"Qual opção do `mkswap` força a operação, mesmo que seja potencialmente perigosa (ex: sobrescrever uma tabela de partição)?",`-f` ou `--force`
+O `mkswap` apaga o primeiro bloco do dispositivo?,"Sim, para tornar qualquer sistema de arquivos anterior invisível, mas ele se recusa a fazer isso se detectar uma tabela de partição (disklabel), a menos que `-f` seja usado."
+Qual arquivo de configuração lista as áreas de swap que devem ser ativadas durante o boot?,`/etc/fstab`
+Qual comando ativa todas as áreas de swap listadas no `/etc/fstab`?,`swapon -a`
+Como o kernel Linux exibe as áreas de swap que estão atualmente em uso?,Através do arquivo virtual `/proc/swaps`.

@@ -1,15 +1,15 @@
 pergunta,resposta
-"Qual o propósito principal do comando `ldd`?","Imprimir as dependências de bibliotecas compartilhadas (shared libraries) de um programa ou de outra biblioteca."
-"Como usar o `ldd` para ver as dependências do executável `/bin/bash`?","`ldd /bin/bash`"
-"Na saída do `ldd`, o que a seta `=>` indica?","Indica que a biblioteca à esquerda foi encontrada e mapeada para o arquivo de biblioteca à direita."
-"O que significa se uma linha na saída do `ldd` mostra 'not found'?","Significa que o 'dynamic linker' não conseguiu encontrar a biblioteca compartilhada necessária, e o programa provavelmente não executará."
-"O que a biblioteca `linux-vdso.so.1` representa na saída do `ldd`?","É uma 'Virtual Dynamic Shared Object', uma pequena biblioteca que o kernel mapeia no espaço de endereço de cada programa para otimizar certas chamadas de sistema."
-"O que a biblioteca `ld-linux-x86-64.so.2` (ou similar) representa?","É o próprio 'dynamic linker' (ou 'loader'), responsável por carregar todas as outras bibliotecas compartilhadas."
-"Qual opção do `ldd` exibe informações mais detalhadas, incluindo informações de versionamento de símbolos?","`-v` ou `--verbose`"
-"Qual opção do `ldd` exibe as dependências diretas que não são usadas pelo programa?","`-u` ou `--unused`"
-"Qual opção do `ldd` verifica por realocações de dados e reporta objetos faltando?","`-d` ou `--data-relocs`"
-"Qual opção do `ldd` verifica por realocações de dados e de funções, reportando objetos ou funções faltando?","`-r` ou `--function-relocs`"
-"Por que é perigoso executar `ldd` em um executável que não é de confiança?","Porque, em algumas circunstâncias, o `ldd` pode acabar executando o programa para determinar suas dependências, o que poderia executar código malicioso."
-"Qual é uma alternativa mais segura ao `ldd` para ver as dependências diretas de um executável não confiável?","`objdump -p <executavel> | grep NEEDED`"
-"O `ldd` funciona em bibliotecas estaticamente vinculadas (statically linked)?","Não, porque programas estaticamente vinculados não possuem dependências de bibliotecas compartilhadas; todo o código necessário já está dentro do executável."
-"Como o `ldd` realmente funciona?","Ele define a variável de ambiente `LD_TRACE_LOADED_OBJECTS` e então executa o 'dynamic linker', que reporta as bibliotecas que ele carrega."
+Qual o propósito principal do comando `ldd`?,Imprimir as dependências de bibliotecas compartilhadas (shared libraries) de um programa ou de outra biblioteca.
+Como usar o `ldd` para ver as dependências do executável `/bin/bash`?,`ldd /bin/bash`
+"Na saída do `ldd`, o que a seta `=>` indica?",Indica que a biblioteca à esquerda foi encontrada e mapeada para o arquivo de biblioteca à direita.
+O que significa se uma linha na saída do `ldd` mostra 'not found'?,"Significa que o 'dynamic linker' não conseguiu encontrar a biblioteca compartilhada necessária, e o programa provavelmente não executará."
+O que a biblioteca `linux-vdso.so.1` representa na saída do `ldd`?,"É uma 'Virtual Dynamic Shared Object', uma pequena biblioteca que o kernel mapeia no espaço de endereço de cada programa para otimizar certas chamadas de sistema."
+O que a biblioteca `ld-linux-x86-64.so.2` (ou similar) representa?,"É o próprio 'dynamic linker' (ou 'loader'), responsável por carregar todas as outras bibliotecas compartilhadas."
+"Qual opção do `ldd` exibe informações mais detalhadas, incluindo informações de versionamento de símbolos?",`-v` ou `--verbose`
+Qual opção do `ldd` exibe as dependências diretas que não são usadas pelo programa?,`-u` ou `--unused`
+Qual opção do `ldd` verifica por realocações de dados e reporta objetos faltando?,`-d` ou `--data-relocs`
+"Qual opção do `ldd` verifica por realocações de dados e de funções, reportando objetos ou funções faltando?",`-r` ou `--function-relocs`
+Por que é perigoso executar `ldd` em um executável que não é de confiança?,"Porque, em algumas circunstâncias, o `ldd` pode acabar executando o programa para determinar suas dependências, o que poderia executar código malicioso."
+Qual é uma alternativa mais segura ao `ldd` para ver as dependências diretas de um executável não confiável?,`objdump -p <executavel> | grep NEEDED`
+O `ldd` funciona em bibliotecas estaticamente vinculadas (statically linked)?,"Não, porque programas estaticamente vinculados não possuem dependências de bibliotecas compartilhadas; todo o código necessário já está dentro do executável."
+Como o `ldd` realmente funciona?,"Ele define a variável de ambiente `LD_TRACE_LOADED_OBJECTS` e então executa o 'dynamic linker', que reporta as bibliotecas que ele carrega."

@@ -1,11 +1,11 @@
-"pergunta","resposta"
-"Qual é o primeiro passo que o Bash executa ao ler uma linha de comando?","O shell lê sua entrada e a divide em palavras e operadores, obedecendo às regras de citação. Este processo é chamado de tokenização."
-"O que são 'tokens' no contexto do parsing do Bash?","Tokens são as sequências de caracteres consideradas uma única unidade pelo shell, como palavras ou operadores."
-"Após a tokenização, qual é o próximo passo do shell?","O shell analisa os tokens em comandos simples e compostos."
-"O que é um comando simples no Bash?","É uma sequência de palavras separadas por espaços, terminada por um operador de controle do shell. A primeira palavra geralmente especifica um comando a ser executado."
-"O que é um comando composto no Bash?","É um comando como um loop `for`, `while`, condicional `if` ou agrupamento de comandos com `()` ou `{}`."
+pergunta,resposta
+Qual é o primeiro passo que o Bash executa ao ler uma linha de comando?,"O shell lê sua entrada e a divide em palavras e operadores, obedecendo às regras de citação. Este processo é chamado de tokenização."
+O que são 'tokens' no contexto do parsing do Bash?,"Tokens são as sequências de caracteres consideradas uma única unidade pelo shell, como palavras ou operadores."
+"Após a tokenização, qual é o próximo passo do shell?",O shell analisa os tokens em comandos simples e compostos.
+O que é um comando simples no Bash?,"É uma sequência de palavras separadas por espaços, terminada por um operador de controle do shell. A primeira palavra geralmente especifica um comando a ser executado."
+O que é um comando composto no Bash?,"É um comando como um loop `for`, `while`, condicional `if` ou agrupamento de comandos com `()` ou `{}`."
 "Qual é a terceira etapa no pipeline de processamento de comandos do Bash, após a análise em comandos?","O shell realiza as várias expansões de shell, em uma ordem específica."
-"Qual é a ordem exata das expansões realizadas pelo Bash?","1. Expansão de chaves (Brace Expansion)\n2. Expansão de til (Tilde Expansion)\n3. Expansão de parâmetros e variáveis\n4. Substituição de comando\n5. Expansão aritmética\n6. Divisão de palavras (Word Splitting)\n7. Expansão de nome de caminho (Globbing)"
-"Quando a remoção de aspas (Quote Removal) ocorre?","Ocorre após todas as outras expansões. Todos os caracteres de citação não citados (`\`, `'`, `""`) que não resultaram de uma expansão são removidos."
-"O redirecionamento é configurado antes ou depois da execução do comando?","O redirecionamento é realizado após as expansões, mas antes que o comando seja realmente executado."
-"Como o shell determina se um comando é um builtin, uma função ou um executável externo?","O shell procura na seguinte ordem: 1. Funções shell. 2. Comandos embutidos (builtins). 3. Arquivos executáveis nos diretórios listados na variável de ambiente `PATH`.}"
+Qual é a ordem exata das expansões realizadas pelo Bash?,1. Expansão de chaves (Brace Expansion)\n2. Expansão de til (Tilde Expansion)\n3. Expansão de parâmetros e variáveis\n4. Substituição de comando\n5. Expansão aritmética\n6. Divisão de palavras (Word Splitting)\n7. Expansão de nome de caminho (Globbing)
+Quando a remoção de aspas (Quote Removal) ocorre?,"Ocorre após todas as outras expansões. Todos os caracteres de citação não citados (`\`, `'`, `""`) que não resultaram de uma expansão são removidos."
+O redirecionamento é configurado antes ou depois da execução do comando?,"O redirecionamento é realizado após as expansões, mas antes que o comando seja realmente executado."
+"Como o shell determina se um comando é um builtin, uma função ou um executável externo?",O shell procura na seguinte ordem: 1. Funções shell. 2. Comandos embutidos (builtins). 3. Arquivos executáveis nos diretórios listados na variável de ambiente `PATH`.}

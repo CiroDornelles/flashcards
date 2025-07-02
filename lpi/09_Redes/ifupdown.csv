@@ -1,20 +1,20 @@
 pergunta,resposta
-"Qual o propósito dos comandos `ifup` e `ifdown`?","São scripts para ativar (`ifup`) e desativar (`ifdown`) interfaces de rede com base nas configurações do arquivo `/etc/network/interfaces`."
-"Qual arquivo de configuração os comandos `ifup` e `ifdown` utilizam?","`/etc/network/interfaces`"
-"Como ativar uma interface específica (ex: eth0) usando este sistema?","`ifup eth0`"
-"Como desativar uma interface específica (ex: eth0) usando este sistema?","`ifdown eth0`"
-"Qual opção do `ifup` ativa todas as interfaces marcadas como 'auto'?","`ifup -a` ou `ifup --all`"
-"No arquivo `/etc/network/interfaces`, o que a diretiva `auto <interface>` faz?","Instrui o sistema a ativar a interface automaticamente durante o boot (usando `ifup -a`)."
-"No arquivo `/etc/network/interfaces`, o que a diretiva `allow-hotplug <interface>` faz?","Instrui o sistema a ativar a interface quando um evento de 'hotplug' (ex: conectar um cabo) é detectado."
-"No arquivo `/etc/network/interfaces`, qual é a linha que inicia a definição de uma interface?","`iface <interface> <família> <método>`"
-"No arquivo `/etc/network/interfaces`, o que o método `loopback` significa?","Usado para a interface de loopback local (`lo`)."
-"No arquivo `/etc/network/interfaces`, o que o método `static` significa?","A interface será configurada com um endereço IP estático e outros parâmetros manuais."
-"No arquivo `/etc/network/interfaces`, o que o método `dhcp` significa?","A interface obterá sua configuração de rede de um servidor DHCP."
-"No arquivo `/etc/network/interfaces`, como se define um endereço IP estático?","`address <endereço_ip>`"
-"No arquivo `/etc/network/interfaces`, como se define a máscara de rede?","`netmask <máscara>`"
-"No arquivo `/etc/network/interfaces`, como se define o gateway padrão?","`gateway <endereço_do_gateway>`"
-"No arquivo `/etc/network/interfaces`, como se define os servidores DNS?","`dns-nameservers <servidor1> <servidor2> ...`"
-"No arquivo `/etc/network/interfaces`, como se define os domínios de busca DNS?","`dns-search <domínio1> <domínio2> ...`"
-"O que são os scripts de 'hook' no sistema `ifupdown`?","São scripts executáveis em diretórios como `/etc/network/if-up.d/` que rodam automaticamente antes ou depois de uma interface ser ativada ou desativada."
-"Qual é a sintaxe para uma configuração estática completa para a interface eth0 com IP 192.168.1.50?","`iface eth0 inet static\n    address 192.168.1.50\n    netmask 255.255.255.0\n    gateway 192.168.1.1`"
-"Quais ferramentas modernas estão substituindo o sistema `ifupdown`?","`systemd-networkd` e `NetworkManager`."
+Qual o propósito dos comandos `ifup` e `ifdown`?,São scripts para ativar (`ifup`) e desativar (`ifdown`) interfaces de rede com base nas configurações do arquivo `/etc/network/interfaces`.
+Qual arquivo de configuração os comandos `ifup` e `ifdown` utilizam?,`/etc/network/interfaces`
+Como ativar uma interface específica (ex: eth0) usando este sistema?,`ifup eth0`
+Como desativar uma interface específica (ex: eth0) usando este sistema?,`ifdown eth0`
+Qual opção do `ifup` ativa todas as interfaces marcadas como 'auto'?,`ifup -a` ou `ifup --all`
+"No arquivo `/etc/network/interfaces`, o que a diretiva `auto <interface>` faz?",Instrui o sistema a ativar a interface automaticamente durante o boot (usando `ifup -a`).
+"No arquivo `/etc/network/interfaces`, o que a diretiva `allow-hotplug <interface>` faz?",Instrui o sistema a ativar a interface quando um evento de 'hotplug' (ex: conectar um cabo) é detectado.
+"No arquivo `/etc/network/interfaces`, qual é a linha que inicia a definição de uma interface?",`iface <interface> <família> <método>`
+"No arquivo `/etc/network/interfaces`, o que o método `loopback` significa?",Usado para a interface de loopback local (`lo`).
+"No arquivo `/etc/network/interfaces`, o que o método `static` significa?",A interface será configurada com um endereço IP estático e outros parâmetros manuais.
+"No arquivo `/etc/network/interfaces`, o que o método `dhcp` significa?",A interface obterá sua configuração de rede de um servidor DHCP.
+"No arquivo `/etc/network/interfaces`, como se define um endereço IP estático?",`address <endereço_ip>`
+"No arquivo `/etc/network/interfaces`, como se define a máscara de rede?",`netmask <máscara>`
+"No arquivo `/etc/network/interfaces`, como se define o gateway padrão?",`gateway <endereço_do_gateway>`
+"No arquivo `/etc/network/interfaces`, como se define os servidores DNS?",`dns-nameservers <servidor1> <servidor2> ...`
+"No arquivo `/etc/network/interfaces`, como se define os domínios de busca DNS?",`dns-search <domínio1> <domínio2> ...`
+O que são os scripts de 'hook' no sistema `ifupdown`?,São scripts executáveis em diretórios como `/etc/network/if-up.d/` que rodam automaticamente antes ou depois de uma interface ser ativada ou desativada.
+Qual é a sintaxe para uma configuração estática completa para a interface eth0 com IP 192.168.1.50?,`iface eth0 inet static\n    address 192.168.1.50\n    netmask 255.255.255.0\n    gateway 192.168.1.1`
+Quais ferramentas modernas estão substituindo o sistema `ifupdown`?,`systemd-networkd` e `NetworkManager`.

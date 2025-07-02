@@ -1,16 +1,16 @@
 pergunta,resposta
-"Qual comando exibe o 'target' atual e o anterior em um sistema `systemd` (análogo ao comando `runlevel`)?","`runlevel`"
-"O que a saída `N 5` do comando `runlevel` significa?","O runlevel anterior não é conhecido (N) e o atual é o 5 (modo gráfico)."
-"Qual comando legado é usado para mudar de runlevel?","`telinit` (ex: `telinit 3`)"
-"Em um sistema `systemd`, o que o comando `telinit 3` realmente faz nos bastidores?","Ele é um link simbólico para o `systemctl` e executa o comando `systemctl isolate multi-user.target`."
-"Qual comando do `systemctl` é usado para listar todos os 'targets' disponíveis?","`systemctl list-units --type=target`"
-"Qual comando do `systemctl` mostra o 'target' padrão para a inicialização?","`systemctl get-default`"
-"Qual comando do `systemctl` altera o 'target' padrão para o modo multiusuário sem interface gráfica?","`systemctl set-default multi-user.target`"
-"Qual comando do `systemctl` muda para o modo de resgate na sessão atual, sem alterar o padrão?","`systemctl isolate rescue.target`"
-"Qual é o 'target' do `systemd` que corresponde ao runlevel 0 (desligar)?","`poweroff.target`"
-"Qual é o 'target' do `systemd` que corresponde ao runlevel 6 (reiniciar)?","`reboot.target`"
-"Qual é o 'target' do `systemd` que corresponde ao runlevel 1 (modo de usuário único)?","`rescue.target`"
-"Qual é o 'target' do `systemd` que corresponde ao runlevel 5 (modo gráfico)?","`graphical.target`"
-"Onde fica o arquivo que define o 'target' padrão em um sistema `systemd`?","É um link simbólico em `/etc/systemd/system/default.target` que aponta para o arquivo do 'target' real em `/usr/lib/systemd/system/`."
-"O que o `multi-user.target` no `systemd` geralmente inclui ou 'quer'?","Ele geralmente depende de 'basic.target' e inicia todos os serviços de rede e terminais de login não gráficos."
-"O que o `graphical.target` no `systemd` geralmente inclui ou 'quer'?","Ele depende de `multi-user.target` e adiciona os serviços necessários para a interface gráfica (servidor X, gerenciador de login, etc.)."
+Qual comando exibe o 'target' atual e o anterior em um sistema `systemd` (análogo ao comando `runlevel`)?,`runlevel`
+O que a saída `N 5` do comando `runlevel` significa?,O runlevel anterior não é conhecido (N) e o atual é o 5 (modo gráfico).
+Qual comando legado é usado para mudar de runlevel?,`telinit` (ex: `telinit 3`)
+"Em um sistema `systemd`, o que o comando `telinit 3` realmente faz nos bastidores?",Ele é um link simbólico para o `systemctl` e executa o comando `systemctl isolate multi-user.target`.
+Qual comando do `systemctl` é usado para listar todos os 'targets' disponíveis?,`systemctl list-units --type=target`
+Qual comando do `systemctl` mostra o 'target' padrão para a inicialização?,`systemctl get-default`
+Qual comando do `systemctl` altera o 'target' padrão para o modo multiusuário sem interface gráfica?,`systemctl set-default multi-user.target`
+"Qual comando do `systemctl` muda para o modo de resgate na sessão atual, sem alterar o padrão?",`systemctl isolate rescue.target`
+Qual é o 'target' do `systemd` que corresponde ao runlevel 0 (desligar)?,`poweroff.target`
+Qual é o 'target' do `systemd` que corresponde ao runlevel 6 (reiniciar)?,`reboot.target`
+Qual é o 'target' do `systemd` que corresponde ao runlevel 1 (modo de usuário único)?,`rescue.target`
+Qual é o 'target' do `systemd` que corresponde ao runlevel 5 (modo gráfico)?,`graphical.target`
+Onde fica o arquivo que define o 'target' padrão em um sistema `systemd`?,É um link simbólico em `/etc/systemd/system/default.target` que aponta para o arquivo do 'target' real em `/usr/lib/systemd/system/`.
+O que o `multi-user.target` no `systemd` geralmente inclui ou 'quer'?,Ele geralmente depende de 'basic.target' e inicia todos os serviços de rede e terminais de login não gráficos.
+O que o `graphical.target` no `systemd` geralmente inclui ou 'quer'?,"Ele depende de `multi-user.target` e adiciona os serviços necessários para a interface gráfica (servidor X, gerenciador de login, etc.)."

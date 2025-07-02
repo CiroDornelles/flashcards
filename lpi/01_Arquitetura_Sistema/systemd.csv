@@ -1,22 +1,22 @@
 pergunta,resposta
-"Qual é o papel do `systemd` no processo de inicialização do Linux?","É o primeiro processo que o kernel executa (PID 1) e é responsável por inicializar todos os outros daemons e serviços do sistema."
-"O que é uma 'unit' no `systemd`?","É a unidade de configuração básica do `systemd`. Pode ser um serviço (.service), um ponto de montagem (.mount), um dispositivo (.device), um socket (.socket), um target (.target), etc."
-"Onde os arquivos de 'unit' do `systemd` são armazenados?","Os arquivos padrão ficam em `/usr/lib/systemd/system/`, e os arquivos personalizados ou modificados pelo administrador ficam em `/etc/systemd/system/`."
-"O que é um 'target' no `systemd`?","Um 'target' é um tipo de 'unit' que agrupa outras 'units' para levar o sistema a um estado específico. São análogos aos 'runlevels' do SysVinit."
-"Qual 'target' no `systemd` é análogo ao runlevel 5 (modo gráfico multiusuário) do SysVinit?","`graphical.target`"
-"Qual 'target' no `systemd` é análogo ao runlevel 3 (modo texto multiusuário) do SysVinit?","`multi-user.target`"
-"Qual 'target' no `systemd` é usado para tarefas de recuperação e manutenção (análogo ao runlevel 1)?","`rescue.target`"
-"Qual 'target' é usado para a inicialização mais básica possível, fornecendo um shell de emergência?","`emergency.target`"
-"Qual comando é usado para interagir com o `systemd` e gerenciar 'units'?","`systemctl`"
-"Como verificar o 'target' padrão que o sistema irá inicializar?","`systemctl get-default`"
-"Como definir um novo 'target' padrão (ex: modo gráfico)?","`systemctl set-default graphical.target`"
-"Como isolar (mudar para) um 'target' específico na sessão atual (ex: modo de resgate)?","`systemctl isolate rescue.target`"
-"Qual a principal diferença entre `systemctl isolate` e `systemctl set-default`?","`isolate` muda o estado na sessão atual (temporário), enquanto `set-default` define o comportamento padrão para as próximas inicializações (permanente)."
-"Como o `systemd` acelera o processo de inicialização em comparação com o SysVinit?","Ele inicia serviços em paralelo, com base em suas dependências, em vez de iniciá-los sequencialmente."
-"O que o `systemd-analyze` faz?","Analisa e exibe estatísticas sobre o tempo de inicialização, mostrando quanto tempo cada serviço levou para iniciar."
-"Qual comando mostra uma árvore de dependências críticas que levaram ao 'target' padrão?","`systemd-analyze critical-chain`"
-"Qual comando mostra uma imagem SVG detalhada do processo de boot?","`systemd-analyze plot > boot.svg`"
+Qual é o papel do `systemd` no processo de inicialização do Linux?,É o primeiro processo que o kernel executa (PID 1) e é responsável por inicializar todos os outros daemons e serviços do sistema.
+O que é uma 'unit' no `systemd`?,"É a unidade de configuração básica do `systemd`. Pode ser um serviço (.service), um ponto de montagem (.mount), um dispositivo (.device), um socket (.socket), um target (.target), etc."
+Onde os arquivos de 'unit' do `systemd` são armazenados?,"Os arquivos padrão ficam em `/usr/lib/systemd/system/`, e os arquivos personalizados ou modificados pelo administrador ficam em `/etc/systemd/system/`."
+O que é um 'target' no `systemd`?,Um 'target' é um tipo de 'unit' que agrupa outras 'units' para levar o sistema a um estado específico. São análogos aos 'runlevels' do SysVinit.
+Qual 'target' no `systemd` é análogo ao runlevel 5 (modo gráfico multiusuário) do SysVinit?,`graphical.target`
+Qual 'target' no `systemd` é análogo ao runlevel 3 (modo texto multiusuário) do SysVinit?,`multi-user.target`
+Qual 'target' no `systemd` é usado para tarefas de recuperação e manutenção (análogo ao runlevel 1)?,`rescue.target`
+"Qual 'target' é usado para a inicialização mais básica possível, fornecendo um shell de emergência?",`emergency.target`
+Qual comando é usado para interagir com o `systemd` e gerenciar 'units'?,`systemctl`
+Como verificar o 'target' padrão que o sistema irá inicializar?,`systemctl get-default`
+Como definir um novo 'target' padrão (ex: modo gráfico)?,`systemctl set-default graphical.target`
+Como isolar (mudar para) um 'target' específico na sessão atual (ex: modo de resgate)?,`systemctl isolate rescue.target`
+Qual a principal diferença entre `systemctl isolate` e `systemctl set-default`?,"`isolate` muda o estado na sessão atual (temporário), enquanto `set-default` define o comportamento padrão para as próximas inicializações (permanente)."
+Como o `systemd` acelera o processo de inicialização em comparação com o SysVinit?,"Ele inicia serviços em paralelo, com base em suas dependências, em vez de iniciá-los sequencialmente."
+O que o `systemd-analyze` faz?,"Analisa e exibe estatísticas sobre o tempo de inicialização, mostrando quanto tempo cada serviço levou para iniciar."
+Qual comando mostra uma árvore de dependências críticas que levaram ao 'target' padrão?,`systemd-analyze critical-chain`
+Qual comando mostra uma imagem SVG detalhada do processo de boot?,`systemd-analyze plot > boot.svg`
 "Como o `systemd` lida com as chamadas para os comandos de runlevel do SysVinit, como `telinit` e `runlevel`?","O `systemd` fornece esses comandos por compatibilidade, e eles são mapeados para as ações correspondentes do `systemctl`."
-"O que o `systemd-boot` é?","É um gerenciador de boot mais simples, focado em sistemas UEFI, que pode ser uma alternativa ao GRUB."
-"Qual é o nome do componente do `systemd` que gerencia os logs do sistema?","`journald`"
-"Qual o nome do processo do `systemd` que gerencia sessões de usuário?","`logind`"
+O que o `systemd-boot` é?,"É um gerenciador de boot mais simples, focado em sistemas UEFI, que pode ser uma alternativa ao GRUB."
+Qual é o nome do componente do `systemd` que gerencia os logs do sistema?,`journald`
+Qual o nome do processo do `systemd` que gerencia sessões de usuário?,`logind`

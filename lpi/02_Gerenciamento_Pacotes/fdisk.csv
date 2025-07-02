@@ -1,26 +1,26 @@
 pergunta,resposta
-"Qual o propósito principal do comando `fdisk`?","É um programa interativo (baseado em diálogo) para criar e manipular tabelas de partição de disco."
-"Quais tipos de tabelas de partição o `fdisk` moderno suporta?","GPT, MBR, Sun, SGI e BSD."
-"Como listar as tabelas de partição de todos os discos do sistema com `fdisk`?","`fdisk -l`"
-"Como iniciar o `fdisk` no modo interativo para modificar um disco específico (ex: /dev/sda)?","`fdisk /dev/sda`"
-"No modo interativo do `fdisk`, qual comando exibe o menu de ajuda?","`m`"
-"No modo interativo do `fdisk`, qual comando imprime a tabela de partição atual do disco?","`p`"
-"No modo interativo do `fdisk`, qual comando cria uma nova partição?","`n`"
-"No modo interativo do `fdisk`, qual comando deleta uma partição existente?","`d`"
-"No modo interativo do `fdisk`, qual comando altera o tipo de uma partição (ex: de 'Linux' para 'Linux swap')?","`t`"
-"No modo interativo do `fdisk`, qual comando ativa ou desativa a flag 'bootable' em uma partição MBR?","`a`"
-"No modo interativo do `fdisk`, qual comando grava as alterações no disco e sai?","`w`"
-"No modo interativo do `fdisk`, qual comando sai sem salvar as alterações?","`q`"
-"O que é uma partição primária em uma tabela MBR?","Uma das quatro partições principais que podem ser criadas. Uma delas pode ser uma partição estendida."
-"O que é uma partição estendida em uma tabela MBR?","Um tipo especial de partição primária que serve como um contêiner para partições lógicas."
-"Quantas partições primárias uma tabela MBR pode ter?","Até 4."
-"Quantas partições lógicas podem existir dentro de uma partição estendida?","Teoricamente, um número ilimitado, mas na prática limitado pelo sistema operacional."
-"O que é GPT?","GUID Partition Table, um padrão moderno para tabelas de partição que supera as limitações do MBR."
-"Quais são as principais vantagens do GPT sobre o MBR?","Suporte para discos maiores que 2TB, até 128 partições por padrão, e uso de checksums para verificar a integridade da tabela."
-"No modo interativo do `fdisk`, qual comando cria uma nova tabela de partição GPT vazia?","`g`"
-"No modo interativo do `fdisk`, qual comando cria uma nova tabela de partição MBR (DOS) vazia?","`o`"
+Qual o propósito principal do comando `fdisk`?,É um programa interativo (baseado em diálogo) para criar e manipular tabelas de partição de disco.
+Quais tipos de tabelas de partição o `fdisk` moderno suporta?,"GPT, MBR, Sun, SGI e BSD."
+Como listar as tabelas de partição de todos os discos do sistema com `fdisk`?,`fdisk -l`
+Como iniciar o `fdisk` no modo interativo para modificar um disco específico (ex: /dev/sda)?,`fdisk /dev/sda`
+"No modo interativo do `fdisk`, qual comando exibe o menu de ajuda?",`m`
+"No modo interativo do `fdisk`, qual comando imprime a tabela de partição atual do disco?",`p`
+"No modo interativo do `fdisk`, qual comando cria uma nova partição?",`n`
+"No modo interativo do `fdisk`, qual comando deleta uma partição existente?",`d`
+"No modo interativo do `fdisk`, qual comando altera o tipo de uma partição (ex: de 'Linux' para 'Linux swap')?",`t`
+"No modo interativo do `fdisk`, qual comando ativa ou desativa a flag 'bootable' em uma partição MBR?",`a`
+"No modo interativo do `fdisk`, qual comando grava as alterações no disco e sai?",`w`
+"No modo interativo do `fdisk`, qual comando sai sem salvar as alterações?",`q`
+O que é uma partição primária em uma tabela MBR?,Uma das quatro partições principais que podem ser criadas. Uma delas pode ser uma partição estendida.
+O que é uma partição estendida em uma tabela MBR?,Um tipo especial de partição primária que serve como um contêiner para partições lógicas.
+Quantas partições primárias uma tabela MBR pode ter?,Até 4.
+Quantas partições lógicas podem existir dentro de uma partição estendida?,"Teoricamente, um número ilimitado, mas na prática limitado pelo sistema operacional."
+O que é GPT?,"GUID Partition Table, um padrão moderno para tabelas de partição que supera as limitações do MBR."
+Quais são as principais vantagens do GPT sobre o MBR?,"Suporte para discos maiores que 2TB, até 128 partições por padrão, e uso de checksums para verificar a integridade da tabela."
+"No modo interativo do `fdisk`, qual comando cria uma nova tabela de partição GPT vazia?",`g`
+"No modo interativo do `fdisk`, qual comando cria uma nova tabela de partição MBR (DOS) vazia?",`o`
 "Ao criar uma partição, como se pode especificar o tamanho (ex: +512M)?","No prompt 'Last sector', pode-se usar a notação `+<tamanho>{K,M,G,T,P}` para definir um tamanho relativo ao setor inicial."
-"Qual opção do `fdisk` lista as partições e fornece mais detalhes, como o UUID da partição?","`-x` ou `--list-details`"
-"Qual opção do `fdisk` força a limpeza de assinaturas de sistemas de arquivos existentes ao criar uma nova partição?","`-W` ou `--wipe-partitions`"
-"O que é o 'protective MBR' em um disco GPT?","É um MBR falso no primeiro setor do disco que o descreve como um único dispositivo grande, para proteger o disco de ferramentas antigas que só entendem MBR."
-"No modo interativo do `fdisk`, qual comando ativa o modo de especialista (expert mode)?","`x`"
+"Qual opção do `fdisk` lista as partições e fornece mais detalhes, como o UUID da partição?",`-x` ou `--list-details`
+Qual opção do `fdisk` força a limpeza de assinaturas de sistemas de arquivos existentes ao criar uma nova partição?,`-W` ou `--wipe-partitions`
+O que é o 'protective MBR' em um disco GPT?,"É um MBR falso no primeiro setor do disco que o descreve como um único dispositivo grande, para proteger o disco de ferramentas antigas que só entendem MBR."
+"No modo interativo do `fdisk`, qual comando ativa o modo de especialista (expert mode)?",`x`

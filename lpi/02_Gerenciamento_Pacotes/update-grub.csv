@@ -1,9 +1,9 @@
 pergunta,resposta
-"Qual o propósito do comando `update-grub`?","É um script de conveniência usado em sistemas baseados em Debian (como Ubuntu) para gerar um novo arquivo de configuração do GRUB."
-"O `update-grub` é um comando padrão do GRUB ou específico de algumas distribuições?","É específico de distribuições baseadas em Debian."
-"Qual comando o `update-grub` executa nos bastidores?","Ele executa `grub-mkconfig -o /boot/grub/grub.cfg`."
-"Por que usar `update-grub` em vez de `grub-mkconfig` em um sistema Debian/Ubuntu?","É mais simples de lembrar e menos propenso a erros de digitação no caminho do arquivo de saída."
-"Depois de quais ações um administrador normalmente executaria o `update-grub`?","Após atualizar o kernel, modificar o arquivo `/etc/default/grub`, ou alterar os scripts em `/etc/grub.d/`."
-"O `update-grub` detecta novos kernels automaticamente?","Sim, assim como o `grub-mkconfig`, ele utiliza os scripts em `/etc/grub.d/` para detectar kernels e outros sistemas operacionais."
-"O `update-grub` instala o GRUB na MBR?","Não, ele apenas atualiza o arquivo de configuração. Para instalar o GRUB, o comando correto é `grub-install`."
-"Se `update-grub` não for encontrado no sistema, qual é o comando equivalente que deve ser usado?","`grub-mkconfig -o /boot/grub/grub.cfg`"
+Qual o propósito do comando `update-grub`?,É um script de conveniência usado em sistemas baseados em Debian (como Ubuntu) para gerar um novo arquivo de configuração do GRUB.
+O `update-grub` é um comando padrão do GRUB ou específico de algumas distribuições?,É específico de distribuições baseadas em Debian.
+Qual comando o `update-grub` executa nos bastidores?,Ele executa `grub-mkconfig -o /boot/grub/grub.cfg`.
+Por que usar `update-grub` em vez de `grub-mkconfig` em um sistema Debian/Ubuntu?,É mais simples de lembrar e menos propenso a erros de digitação no caminho do arquivo de saída.
+Depois de quais ações um administrador normalmente executaria o `update-grub`?,"Após atualizar o kernel, modificar o arquivo `/etc/default/grub`, ou alterar os scripts em `/etc/grub.d/`."
+O `update-grub` detecta novos kernels automaticamente?,"Sim, assim como o `grub-mkconfig`, ele utiliza os scripts em `/etc/grub.d/` para detectar kernels e outros sistemas operacionais."
+O `update-grub` instala o GRUB na MBR?,"Não, ele apenas atualiza o arquivo de configuração. Para instalar o GRUB, o comando correto é `grub-install`."
+"Se `update-grub` não for encontrado no sistema, qual é o comando equivalente que deve ser usado?",`grub-mkconfig -o /boot/grub/grub.cfg`

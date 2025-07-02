@@ -1,18 +1,18 @@
 pergunta,resposta
-"Qual o propósito principal do comando `blkid`?","Localizar e imprimir os atributos de dispositivos de bloco, como tipo de sistema de arquivos, `LABEL` e `UUID`."
-"Como listar os atributos de todos os dispositivos de bloco reconhecidos?","`blkid`"
-"Qual a principal diferença entre `lsblk -f` e `blkid`?","`lsblk` é melhor para uma visão geral e hierárquica, enquanto `blkid` é a ferramenta de baixo nível para obter os metadados diretamente do dispositivo. `lsblk` usa `blkid` nos bastidores."
-"Como exibir os atributos de um dispositivo específico (ex: /dev/sda1)?","`blkid /dev/sda1`"
-"Como encontrar qual dispositivo possui um `LABEL` específico (ex: 'ROOT')?","`blkid -L ROOT`"
-"Como encontrar qual dispositivo possui um `UUID` específico?","`blkid -U <uuid>`"
-"Qual opção do `blkid` formata a saída como uma lista de pares `CHAVE=VALOR` para fácil importação em scripts?","`-o export`"
-"Qual opção do `blkid` formata a saída em um formato amigável, mas que é considerado depreciado em favor do `lsblk`?","`-o list`"
-"O que a opção `-p` ou `--probe` do `blkid` faz?","Muda para o modo de sondagem de baixo nível, ignorando o cache e lendo diretamente do dispositivo. Isso pode fornecer mais detalhes, como o tipo da tabela de partição (PTTYPE)."
-"Qual opção do `blkid` força uma coleta de lixo no cache do `blkid`, removendo dispositivos que não existem mais?","`-g` ou `--garbage-collect`"
-"Como usar o `blkid` para exibir apenas o `UUID` de um dispositivo específico (ex: /dev/sdb1)?","`blkid -s UUID -o value /dev/sdb1`"
-"Como usar o `blkid` para exibir apenas o tipo de sistema de arquivos (`TYPE`) de /dev/sdb1?","`blkid -s TYPE -o value /dev/sdb1`"
-"O que o `blkid` retorna se detectar múltiplas assinaturas de sistemas de arquivos conflitantes em um dispositivo?","Por padrão, ele ignora o dispositivo silenciosamente por segurança. No modo `-p`, ele retorna um código de saída 8."
-"Qual comando é recomendado para inspecionar e apagar assinaturas de sistemas de arquivos antigas ou conflitantes?","`wipefs`"
-"Onde o `blkid` armazena seu arquivo de cache padrão?","`/run/blkid/blkid.tab` (ou `/etc/blkid.tab` em sistemas mais antigos)."
-"Qual opção do `blkid` permite especificar um arquivo de cache alternativo?","`-c <arquivo>` ou `--cache-file <arquivo>`"
+Qual o propósito principal do comando `blkid`?,"Localizar e imprimir os atributos de dispositivos de bloco, como tipo de sistema de arquivos, `LABEL` e `UUID`."
+Como listar os atributos de todos os dispositivos de bloco reconhecidos?,`blkid`
+Qual a principal diferença entre `lsblk -f` e `blkid`?,"`lsblk` é melhor para uma visão geral e hierárquica, enquanto `blkid` é a ferramenta de baixo nível para obter os metadados diretamente do dispositivo. `lsblk` usa `blkid` nos bastidores."
+Como exibir os atributos de um dispositivo específico (ex: /dev/sda1)?,`blkid /dev/sda1`
+Como encontrar qual dispositivo possui um `LABEL` específico (ex: 'ROOT')?,`blkid -L ROOT`
+Como encontrar qual dispositivo possui um `UUID` específico?,`blkid -U <uuid>`
+Qual opção do `blkid` formata a saída como uma lista de pares `CHAVE=VALOR` para fácil importação em scripts?,`-o export`
+"Qual opção do `blkid` formata a saída em um formato amigável, mas que é considerado depreciado em favor do `lsblk`?",`-o list`
+O que a opção `-p` ou `--probe` do `blkid` faz?,"Muda para o modo de sondagem de baixo nível, ignorando o cache e lendo diretamente do dispositivo. Isso pode fornecer mais detalhes, como o tipo da tabela de partição (PTTYPE)."
+"Qual opção do `blkid` força uma coleta de lixo no cache do `blkid`, removendo dispositivos que não existem mais?",`-g` ou `--garbage-collect`
+Como usar o `blkid` para exibir apenas o `UUID` de um dispositivo específico (ex: /dev/sdb1)?,`blkid -s UUID -o value /dev/sdb1`
+Como usar o `blkid` para exibir apenas o tipo de sistema de arquivos (`TYPE`) de /dev/sdb1?,`blkid -s TYPE -o value /dev/sdb1`
+O que o `blkid` retorna se detectar múltiplas assinaturas de sistemas de arquivos conflitantes em um dispositivo?,"Por padrão, ele ignora o dispositivo silenciosamente por segurança. No modo `-p`, ele retorna um código de saída 8."
+Qual comando é recomendado para inspecionar e apagar assinaturas de sistemas de arquivos antigas ou conflitantes?,`wipefs`
+Onde o `blkid` armazena seu arquivo de cache padrão?,`/run/blkid/blkid.tab` (ou `/etc/blkid.tab` em sistemas mais antigos).
+Qual opção do `blkid` permite especificar um arquivo de cache alternativo?,`-c <arquivo>` ou `--cache-file <arquivo>`
 "Para um usuário não-root, as informações do `blkid` são sempre atuais?","Não, para um usuário não-root, o `blkid` retorna informações do cache, que podem não estar atualizadas. O acesso direto ao dispositivo requer privilégios de root."

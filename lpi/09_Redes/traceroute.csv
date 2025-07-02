@@ -1,19 +1,19 @@
 pergunta,resposta
-"Qual o propósito do comando `traceroute`?","Imprimir a rota (os saltos/hops) que os pacotes levam para chegar a um host de rede."
-"Como o `traceroute` funciona em seu método padrão?","Ele envia pacotes (UDP por padrão) com um Time To Live (TTL) inicial de 1 e incrementa o TTL em 1 para cada conjunto de sondas, até atingir o destino."
-"No `traceroute`, qual opção força o uso de IPv4?","`-4`"
-"No `traceroute`, qual opção força o uso de IPv6?","`-6`"
-"No `traceroute`, qual opção usa pacotes ICMP ECHO em vez de UDP para as sondas?","`-I` ou `--icmp`"
-"No `traceroute`, qual opção usa pacotes TCP SYN em vez de UDP para as sondas?","`-T` ou `--tcp`"
-"No `traceroute`, como especificar o número máximo de saltos (TTL máximo)? O padrão é 30.","`-m max_hop`"
-"No `traceroute`, como especificar a partir de qual salto (TTL) começar? O padrão é 1.","`-f first_hop`"
-"No `traceroute`, como especificar o número de pacotes de sonda a serem enviados para cada salto? O padrão é 3.","`-q nqueries`"
-"No `traceroute`, como especificar a porta de destino base para as sondas UDP? O padrão é 33434.","`-p port`"
-"No `traceroute`, como especificar um endereço de origem para os pacotes de sonda?","`-s src_addr`"
-"No `traceroute`, como especificar uma interface de saída para os pacotes de sonda?","`-i interface`"
-"No `traceroute`, como definir o tempo de espera por uma resposta (em segundos)?","`-w waittime`"
-"No `traceroute`, qual opção impede a fragmentação de pacotes (define o bit 'Don't Fragment')?","`-F`"
-"No `traceroute`, qual opção exibe os endereços IP numericamente, sem tentar resolver os nomes dos hosts?","`-n`"
-"Na saída do `traceroute`, o que as três medições de tempo (ex: 1.234 ms 1.567 ms 1.890 ms) representam?","Representam o tempo de ida e volta (RTT) para cada um dos três pacotes de sonda enviados para aquele salto."
-"Na saída do `traceroute`, o que os asteriscos `* * *` significam?","Significa que não houve resposta para as sondas enviadas para aquele salto dentro do tempo de espera (timeout)."
-"Qual ferramenta moderna do `iproute2` pode realizar uma função similar ao `traceroute`?","`ip route get` pode mostrar a rota, mas `mtr` (My Traceroute) é uma ferramenta de diagnóstico mais avançada que combina `ping` e `traceroute`."
+Qual o propósito do comando `traceroute`?,Imprimir a rota (os saltos/hops) que os pacotes levam para chegar a um host de rede.
+Como o `traceroute` funciona em seu método padrão?,"Ele envia pacotes (UDP por padrão) com um Time To Live (TTL) inicial de 1 e incrementa o TTL em 1 para cada conjunto de sondas, até atingir o destino."
+"No `traceroute`, qual opção força o uso de IPv4?",`-4`
+"No `traceroute`, qual opção força o uso de IPv6?",`-6`
+"No `traceroute`, qual opção usa pacotes ICMP ECHO em vez de UDP para as sondas?",`-I` ou `--icmp`
+"No `traceroute`, qual opção usa pacotes TCP SYN em vez de UDP para as sondas?",`-T` ou `--tcp`
+"No `traceroute`, como especificar o número máximo de saltos (TTL máximo)? O padrão é 30.",`-m max_hop`
+"No `traceroute`, como especificar a partir de qual salto (TTL) começar? O padrão é 1.",`-f first_hop`
+"No `traceroute`, como especificar o número de pacotes de sonda a serem enviados para cada salto? O padrão é 3.",`-q nqueries`
+"No `traceroute`, como especificar a porta de destino base para as sondas UDP? O padrão é 33434.",`-p port`
+"No `traceroute`, como especificar um endereço de origem para os pacotes de sonda?",`-s src_addr`
+"No `traceroute`, como especificar uma interface de saída para os pacotes de sonda?",`-i interface`
+"No `traceroute`, como definir o tempo de espera por uma resposta (em segundos)?",`-w waittime`
+"No `traceroute`, qual opção impede a fragmentação de pacotes (define o bit 'Don't Fragment')?",`-F`
+"No `traceroute`, qual opção exibe os endereços IP numericamente, sem tentar resolver os nomes dos hosts?",`-n`
+"Na saída do `traceroute`, o que as três medições de tempo (ex: 1.234 ms 1.567 ms 1.890 ms) representam?",Representam o tempo de ida e volta (RTT) para cada um dos três pacotes de sonda enviados para aquele salto.
+"Na saída do `traceroute`, o que os asteriscos `* * *` significam?",Significa que não houve resposta para as sondas enviadas para aquele salto dentro do tempo de espera (timeout).
+Qual ferramenta moderna do `iproute2` pode realizar uma função similar ao `traceroute`?,"`ip route get` pode mostrar a rota, mas `mtr` (My Traceroute) é uma ferramenta de diagnóstico mais avançada que combina `ping` e `traceroute`."

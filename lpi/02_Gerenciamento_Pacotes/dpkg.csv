@@ -1,23 +1,23 @@
 pergunta,resposta
-"Onde são configuradas as opções padrão do `dpkg`?","No ficheiro `/etc/dpkg/dpkg.cfg` e em ficheiros de fragmentos no diretório `/etc/dpkg/dpkg.cfg.d/`."
-"Para que serve a opção `--no-act` ou `--dry-run` do `dpkg`?","Simula a execução de uma ação (instalar, remover, etc.) mostrando o que aconteceria, mas sem realizar nenhuma alteração real no sistema."
-"O que faz a opção `-R` ou `--recursive` do `dpkg`?","Processa recursivamente todos os ficheiros `.deb` encontrados num diretório e seus subdiretórios."
-"O que a opção `-G` do `dpkg` previne?","Previne a instalação de um pacote se uma versão mais recente do mesmo já estiver instalada (é um sinónimo de `--refuse-downgrade`)."
-"Como se pode alterar o diretório administrativo do `dpkg` (padrão: `/var/lib/dpkg`)?","Usando a opção `--admindir=<dir>` ou a variável de ambiente `DPKG_ADMINDIR`."
-"Como se pode instalar um pacote num diretório diferente do raiz (`/`)?","Usando a opção `--instdir=<dir>` ou `--root=<dir>`. `--instdir` altera apenas o diretório de instalação, enquanto `--root` altera tanto o de instalação como o administrativo (`<dir>/var/lib/dpkg`)."
-"O que faz a opção `--force-all`?","Ativa todas as opções de forçar (`--force-*`). É uma opção perigosa que deve ser usada com extremo cuidado."
-"O que faz a opção `--force-downgrade`?","Permite a instalação de um pacote mesmo que uma versão mais recente já esteja instalada. Aviso: não verifica dependências e pode quebrar o sistema."
-"O que faz a opção `--force-depends`?","Transforma todos os erros de dependência (Depends, Pre-Depends) em avisos, permitindo a instalação de pacotes com dependências não satisfeitas."
-"O que faz a opção `--force-confnew`?","Se um ficheiro de configuração foi modificado, instala sempre a nova versão do pacote sem perguntar."
-"O que faz a opção `--force-confold`?","Se um ficheiro de configuração foi modificado, mantém sempre a versão antiga do utilizador sem perguntar."
-"O que faz a opção `--force-overwrite`?","Permite que um pacote sobrescreva ficheiros pertencentes a outro pacote. É perigoso e pode levar a inconsistências."
-"O que faz a opção `--force-remove-essential`?","Permite a remoção de um pacote essencial. Esta ação pode destruir o sistema, tornando-o inoperável."
+Onde são configuradas as opções padrão do `dpkg`?,No ficheiro `/etc/dpkg/dpkg.cfg` e em ficheiros de fragmentos no diretório `/etc/dpkg/dpkg.cfg.d/`.
+Para que serve a opção `--no-act` ou `--dry-run` do `dpkg`?,"Simula a execução de uma ação (instalar, remover, etc.) mostrando o que aconteceria, mas sem realizar nenhuma alteração real no sistema."
+O que faz a opção `-R` ou `--recursive` do `dpkg`?,Processa recursivamente todos os ficheiros `.deb` encontrados num diretório e seus subdiretórios.
+O que a opção `-G` do `dpkg` previne?,Previne a instalação de um pacote se uma versão mais recente do mesmo já estiver instalada (é um sinónimo de `--refuse-downgrade`).
+Como se pode alterar o diretório administrativo do `dpkg` (padrão: `/var/lib/dpkg`)?,Usando a opção `--admindir=<dir>` ou a variável de ambiente `DPKG_ADMINDIR`.
+Como se pode instalar um pacote num diretório diferente do raiz (`/`)?,"Usando a opção `--instdir=<dir>` ou `--root=<dir>`. `--instdir` altera apenas o diretório de instalação, enquanto `--root` altera tanto o de instalação como o administrativo (`<dir>/var/lib/dpkg`)."
+O que faz a opção `--force-all`?,Ativa todas as opções de forçar (`--force-*`). É uma opção perigosa que deve ser usada com extremo cuidado.
+O que faz a opção `--force-downgrade`?,Permite a instalação de um pacote mesmo que uma versão mais recente já esteja instalada. Aviso: não verifica dependências e pode quebrar o sistema.
+O que faz a opção `--force-depends`?,"Transforma todos os erros de dependência (Depends, Pre-Depends) em avisos, permitindo a instalação de pacotes com dependências não satisfeitas."
+O que faz a opção `--force-confnew`?,"Se um ficheiro de configuração foi modificado, instala sempre a nova versão do pacote sem perguntar."
+O que faz a opção `--force-confold`?,"Se um ficheiro de configuração foi modificado, mantém sempre a versão antiga do utilizador sem perguntar."
+O que faz a opção `--force-overwrite`?,Permite que um pacote sobrescreva ficheiros pertencentes a outro pacote. É perigoso e pode levar a inconsistências.
+O que faz a opção `--force-remove-essential`?,"Permite a remoção de um pacote essencial. Esta ação pode destruir o sistema, tornando-o inoperável."
 "Para que serve a opção `--ignore-depends=<pacote>,...`?","Ignora a verificação de dependências para os pacotes especificados na lista. A verificação ainda ocorre, mas os erros são tratados como avisos."
-"Como se pode evitar que `dpkg` instale ficheiros de documentação para poupar espaço?","Usando filtros de caminho, por exemplo: `dpkg --path-exclude='/usr/share/doc/*' --path-include='/usr/share/doc/*/copyright' -i <pacote.deb>`."
-"Qual variável de ambiente pode ser usada para definir o modo de cor da saída do `dpkg`?","`DPKG_COLORS`, que aceita os valores `auto`, `always` ou `never`."
-"Qual variável de ambiente o `dpkg` usa para determinar o diretório para ficheiros temporários?","`TMPDIR`."
-"Qual é a função do ficheiro `/var/lib/dpkg/status`?","Contém o estado atual de todos os pacotes conhecidos pelo sistema (instalado, não instalado, purgado, etc.). É um dos ficheiros mais importantes para o `dpkg`."
-"Qual é a função do ficheiro `/var/lib/dpkg/available`?","Contém a lista de todos os pacotes disponíveis para instalação, com base na última atualização dos repositórios (geralmente feita por um frontend como o APT)."
-"O que são os ficheiros com sufixo `.dpkg-new`?","São os novos ficheiros de um pacote, extraídos temporariamente com este nome antes de serem movidos para o seu local final durante a instalação."
-"O que são os ficheiros com sufixo `.dpkg-old` e `.dpkg-dist`?","Quando há um conflito num ficheiro de configuração, `.dpkg-old` é a cópia de segurança da versão antiga do utilizador, e `.dpkg-dist` é a nova versão que veio no pacote."
-"Qual é o propósito do ficheiro de log `/var/log/dpkg.log`?","Regista todas as ações do `dpkg` (instalações, remoções, atualizações, erros), fornecendo um histórico detalhado das operações de pacotes."
+Como se pode evitar que `dpkg` instale ficheiros de documentação para poupar espaço?,"Usando filtros de caminho, por exemplo: `dpkg --path-exclude='/usr/share/doc/*' --path-include='/usr/share/doc/*/copyright' -i <pacote.deb>`."
+Qual variável de ambiente pode ser usada para definir o modo de cor da saída do `dpkg`?,"`DPKG_COLORS`, que aceita os valores `auto`, `always` ou `never`."
+Qual variável de ambiente o `dpkg` usa para determinar o diretório para ficheiros temporários?,`TMPDIR`.
+Qual é a função do ficheiro `/var/lib/dpkg/status`?,"Contém o estado atual de todos os pacotes conhecidos pelo sistema (instalado, não instalado, purgado, etc.). É um dos ficheiros mais importantes para o `dpkg`."
+Qual é a função do ficheiro `/var/lib/dpkg/available`?,"Contém a lista de todos os pacotes disponíveis para instalação, com base na última atualização dos repositórios (geralmente feita por um frontend como o APT)."
+O que são os ficheiros com sufixo `.dpkg-new`?,"São os novos ficheiros de um pacote, extraídos temporariamente com este nome antes de serem movidos para o seu local final durante a instalação."
+O que são os ficheiros com sufixo `.dpkg-old` e `.dpkg-dist`?,"Quando há um conflito num ficheiro de configuração, `.dpkg-old` é a cópia de segurança da versão antiga do utilizador, e `.dpkg-dist` é a nova versão que veio no pacote."
+Qual é o propósito do ficheiro de log `/var/log/dpkg.log`?,"Regista todas as ações do `dpkg` (instalações, remoções, atualizações, erros), fornecendo um histórico detalhado das operações de pacotes."

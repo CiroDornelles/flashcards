@@ -1,21 +1,21 @@
 pergunta,resposta
-"Qual o propósito do comando `ip address` (ou `ip addr`)?","Gerenciamento de endereços de protocolo (IPv4 ou IPv6) em dispositivos de rede."
-"Como exibir todos os endereços IP de todas as interfaces?","`ip addr show` ou simplesmente `ip addr`"
-"Como exibir os endereços IP de uma interface específica (ex: eth0)?","`ip addr show dev eth0`"
-"Como adicionar um endereço IP (ex: 192.168.1.100/24) a uma interface (ex: eth0)?","`ip addr add 192.168.1.100/24 dev eth0`"
-"Como deletar um endereço IP (ex: 192.168.1.100/24) de uma interface (ex: eth0)?","`ip addr del 192.168.1.100/24 dev eth0`"
-"Como remover (flush) todos os endereços IP de uma interface (ex: eth0)?","`ip addr flush dev eth0`"
-"Ao adicionar um endereço, o que o parâmetro `broadcast +` faz?","Calcula e define automaticamente o endereço de broadcast com base no prefixo da rede (ex: `ip addr add 192.168.1.100/24 broadcast + dev eth0`)."
-"Ao adicionar um endereço, para que serve o parâmetro `label`?","Para atribuir um rótulo (alias) ao endereço (ex: `ip addr add 192.168.1.100/24 label eth0:0 dev eth0`)."
-"O que é o `scope` de um endereço IP?","A área onde o endereço é válido (ex: `global`, `link`, `host`)."
-"Na saída de `ip addr show`, o que significa `scope global`?","O endereço é globalmente válido e roteável."
-"Na saída de `ip addr show`, o que significa `scope link`?","O endereço é válido apenas naquele link (dispositivo). Típico para endereços de link-local IPv6 (fe80::/10)."
-"Na saída de `ip addr show`, o que significa `scope host`?","O endereço é válido apenas dentro do próprio host (ex: 127.0.0.1)."
-"Na saída de `ip addr show`, o que a flag `dynamic` indica?","O endereço foi configurado dinamicamente (ex: por DHCP ou SLAAC em IPv6)."
-"Na saída de `ip addr show`, o que a flag `permanent` indica?","O endereço foi configurado estaticamente (é o oposto de `dynamic`)."
+Qual o propósito do comando `ip address` (ou `ip addr`)?,Gerenciamento de endereços de protocolo (IPv4 ou IPv6) em dispositivos de rede.
+Como exibir todos os endereços IP de todas as interfaces?,`ip addr show` ou simplesmente `ip addr`
+Como exibir os endereços IP de uma interface específica (ex: eth0)?,`ip addr show dev eth0`
+Como adicionar um endereço IP (ex: 192.168.1.100/24) a uma interface (ex: eth0)?,`ip addr add 192.168.1.100/24 dev eth0`
+Como deletar um endereço IP (ex: 192.168.1.100/24) de uma interface (ex: eth0)?,`ip addr del 192.168.1.100/24 dev eth0`
+Como remover (flush) todos os endereços IP de uma interface (ex: eth0)?,`ip addr flush dev eth0`
+"Ao adicionar um endereço, o que o parâmetro `broadcast +` faz?",Calcula e define automaticamente o endereço de broadcast com base no prefixo da rede (ex: `ip addr add 192.168.1.100/24 broadcast + dev eth0`).
+"Ao adicionar um endereço, para que serve o parâmetro `label`?",Para atribuir um rótulo (alias) ao endereço (ex: `ip addr add 192.168.1.100/24 label eth0:0 dev eth0`).
+O que é o `scope` de um endereço IP?,"A área onde o endereço é válido (ex: `global`, `link`, `host`)."
+"Na saída de `ip addr show`, o que significa `scope global`?",O endereço é globalmente válido e roteável.
+"Na saída de `ip addr show`, o que significa `scope link`?",O endereço é válido apenas naquele link (dispositivo). Típico para endereços de link-local IPv6 (fe80::/10).
+"Na saída de `ip addr show`, o que significa `scope host`?",O endereço é válido apenas dentro do próprio host (ex: 127.0.0.1).
+"Na saída de `ip addr show`, o que a flag `dynamic` indica?",O endereço foi configurado dinamicamente (ex: por DHCP ou SLAAC em IPv6).
+"Na saída de `ip addr show`, o que a flag `permanent` indica?",O endereço foi configurado estaticamente (é o oposto de `dynamic`).
 "Na saída de `ip addr show`, o que a flag `secondary` indica?","É um endereço secundário na interface (um alias, em termos mais antigos)."
-"Na saída de `ip addr show`, o que a flag `tentative` (IPv6) indica?","O endereço está passando pelo processo de Detecção de Endereço Duplicado (DAD) e ainda não foi confirmado."
+"Na saída de `ip addr show`, o que a flag `tentative` (IPv6) indica?",O endereço está passando pelo processo de Detecção de Endereço Duplicado (DAD) e ainda não foi confirmado.
 "Na saída de `ip addr show`, o que a flag `deprecated` (IPv6) indica?","O endereço ainda é válido, mas não deve ser usado para novas conexões."
-"Como exibir apenas os endereços com um `scope` específico (ex: `link`)?","`ip addr show scope link`"
-"Como exibir apenas os endereços de interfaces que estão `up`?","`ip addr show up`"
-"Como substituir um endereço IP em vez de adicionar um novo?","Use `ip addr replace` em vez de `ip addr add`. Ele adiciona o endereço se não existir ou o modifica se já existir."
+Como exibir apenas os endereços com um `scope` específico (ex: `link`)?,`ip addr show scope link`
+Como exibir apenas os endereços de interfaces que estão `up`?,`ip addr show up`
+Como substituir um endereço IP em vez de adicionar um novo?,Use `ip addr replace` em vez de `ip addr add`. Ele adiciona o endereço se não existir ou o modifica se já existir.
