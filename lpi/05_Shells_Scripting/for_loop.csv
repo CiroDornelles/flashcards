@@ -1,0 +1,7 @@
+"pergunta","resposta"
+"Qual a sintaxe básica de um loop `for` no Bash para iterar sobre uma lista de palavras?","A sintaxe básica é `for NOME [in PALAVRA ...]; do LISTA; done`."
+"O que acontece se a palavra `in` e a lista de palavras forem omitidas em um loop `for`?","Se `in PALAVRA ...` for omitido"," o comando `for` executa a `LISTA` uma vez para cada parâmetro posicional definido."
+"Qual o status de retorno de um loop `for` no Bash?","O status de retorno é o status de saída do último comando executado na `LISTA`."
+"Como usar um loop `for` com uma expressão aritmética no Bash?","A sintaxe é `for ((EXPR1; EXPR2; EXPR3)); do LISTA; done`."
+"O que `EXPR1`"," `EXPR2` e `EXPR3` representam em um loop `for` aritmético?","`EXPR1` é avaliada primeiro. `EXPR2` é avaliada repetidamente até que seja zero. `EXPR3` é avaliada a cada vez que `EXPR2` é diferente de zero e a `LISTA` é executada."
+"Qual o status de retorno de um loop `for` aritmético?","O status de retorno é o status de saída do último comando na `LISTA` que é executado"," ou falso se alguma das expressões for inválida."

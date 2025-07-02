@@ -1,0 +1,3 @@
+"pergunta","resposta"
+"Qual é o comando `rev [arquivo]` e o que ele faz?","O comando `rev [arquivo]` Inverte a ordem dos caracteres em cada linha de um arquivo. Se nenhum arquivo for especificado, lê da entrada padrão.. Exemplo de uso: `echo 'hello' | rev`. Observações: `l olleh`."
+"Qual é o comando `rev arquivo.txt` e o que ele faz?","O comando `rev arquivo.txt` Inverte cada linha do arquivo.txt e exibe o resultado na saída padrão.. Exemplo de uso: `rev poema.txt`. Observações: `É uma ferramenta simples e útil para manipulação de strings em scripts ou na linha de comando.`."
