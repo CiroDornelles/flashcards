@@ -1,0 +1,21 @@
+pergunta,resposta
+Qual o propósito do comando `ifconfig`?,Configurar as interfaces de rede residentes no kernel (ferramenta legada).
+Como exibir a configuração de todas as interfaces de rede ativas com `ifconfig`?,`ifconfig`
+"Como exibir a configuração de TODAS as interfaces de rede, incluindo as inativas, com `ifconfig`?",`ifconfig -a`
+Como exibir a configuração de uma interface específica (ex: eth0) com `ifconfig`?,`ifconfig eth0`
+Como ativar (colocar 'up') uma interface (ex: eth0) com `ifconfig`?,`ifconfig eth0 up`
+Como desativar (colocar 'down') uma interface (ex: eth0) com `ifconfig`?,`ifconfig eth0 down`
+Como atribuir um endereço IP e uma máscara de rede a uma interface (ex: eth0) com `ifconfig`?,`ifconfig eth0 <endereço_ip> netmask <máscara>` (ex: `ifconfig eth0 192.168.1.10 netmask 255.255.255.0`)
+Como alterar o MTU de uma interface com `ifconfig`?,`ifconfig eth0 mtu 1400`
+Como alterar o endereço de hardware (MAC) de uma interface com `ifconfig`?,`ifconfig eth0 hw ether XX:XX:XX:XX:XX:XX`
+Como atribuir um endereço de broadcast a uma interface com `ifconfig`?,`ifconfig eth0 broadcast <endereço_broadcast>`
+Como ativar o modo promíscuo em uma interface com `ifconfig`?,`ifconfig eth0 promisc`
+Como desativar o modo promíscuo em uma interface com `ifconfig`?,`ifconfig eth0 -promisc`
+"Na saída do `ifconfig`, o que `UP` indica?",A interface está ativa.
+"Na saída do `ifconfig`, o que `RUNNING` indica?",A interface está pronta para transmitir e receber dados (ex: cabo conectado).
+"Na saída do `ifconfig`, o que `BROADCAST` indica?",A interface suporta broadcast.
+"Na saída do `ifconfig`, o que `MULTICAST` indica?",A interface suporta multicast.
+"Na saída do `ifconfig`, o que `PROMISC` indica?",A interface está em modo promíscuo.
+"Na saída do `ifconfig`, o que `RX packets` e `TX packets` mostram?",O número de pacotes recebidos (RX) e transmitidos (TX).
+"Na saída do `ifconfig`, o que `errors`, `dropped`, `overruns` e `frame` indicam?",Contadores de diferentes tipos de erros de recepção (RX) e transmissão (TX).
+Qual comando moderno do `iproute2` substitui o `ifconfig`?,`ip addr` e `ip link`

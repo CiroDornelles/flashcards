@@ -1,0 +1,12 @@
+pergunta,resposta
+Qual o propósito do comando `wall`?,Escrever uma mensagem para os terminais de todos os usuários atualmente logados.
+Como enviar uma mensagem simples para todos os usuários usando `wall`?,"`echo Mensagem de teste"" | wall` ou `wall ""Mensagem de teste""`"""
+Como `wall` lida com linhas com mais de 79 caracteres?,Ele quebra a linha (wrap).
+Quem pode escrever para terminais de usuários que desativaram o recebimento de mensagens (com `mesg n`)?,Apenas o superusuário (root).
+Como enviar o conteúdo de um arquivo como uma mensagem `wall`?,`wall /caminho/para/o/arquivo`
+Qual opção do `wall` suprime o cabeçalho (banner) que é exibido antes da mensagem?,`-n` ou `--nobanner`
+Qual opção do `wall` define um tempo limite (timeout) em segundos para tentar escrever nos terminais?,`-t <segundos>` ou `--timeout <segundos>`
+Qual é o tempo limite (timeout) padrão do `wall`?,300 segundos.
+Qual opção do `wall` permite enviar a mensagem apenas para os membros de um grupo específico?,`-g <grupo>` ou `--group <grupo>`
+O comando `shutdown` com um argumento de tempo utiliza o `wall` implicitamente?,"Sim, ele usa o mecanismo do `wall` para notificar os usuários sobre um desligamento ou reinicialização pendente."
+Sessões que começam com ':' no `utmp` (como algumas sessões gráficas) recebem mensagens do `wall`?,"Não, para evitar erros de escrita."

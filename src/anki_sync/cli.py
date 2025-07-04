@@ -4,7 +4,7 @@ import sys
 import time
 from pathlib import Path
 
-from .core import build_deck_tree, sync_deck_tree
+from .core import build_deck_tree, sync_deck_tree, get_anki_deck_name_from_path, compare_flashcards_with_anki
 from .anki_connector import AnkiConnector
 
 def handle_create(args):
@@ -16,18 +16,7 @@ def handle_create(args):
     connector = AnkiConnector(dry_run=args.dry_run)
     connector.test_connection()
 
-    # Definir o modelo de nota LPI-Flashcard
-    lpi_flashcard_fields = ["ID_Unico", "Pergunta", "Resposta"]
-    lpi_flashcard_templates = [
-        {
-            "Name": "Card 1",
-            "Front": "{{Pergunta}}",
-            "Back": "{{FrontSide}}<hr id=answer>{{Resposta}}"
-        }
-    ]
-    lpi_flashcard_css = ".card { font-family: arial; font-size: 20px; text-align: center; color: black; background-color: white; }"
-
-    connector.create_note_model("LPI-Flashcard", lpi_flashcard_fields, lpi_flashcard_templates, lpi_flashcard_css)
+    
 
     # Passo 1: Serialização
     print("\nFase 1: Lendo a estrutura de diretórios e arquivos .csv...")
@@ -49,6 +38,51 @@ def handle_inspect(args):
     connector = AnkiConnector()
     connector.test_connection()
 
+    if args.compare_local:
+        if not args.path:
+            print("Erro: O argumento --compare-local requer que --path seja especificado para o diretório raiz dos flashcards locais.", file=sys.stderr)
+            return
+        
+        comparison_results = compare_flashcards_with_anki(Path(args.path), connector)
+
+        print("\n--- Relatório de Comparação (Anki vs. Local) ---")
+        
+        if comparison_results['only_local']:
+            print("\nCartões APENAS NO REPOSITÓRIO LOCAL (precisam ser criados no Anki):")
+            for card in comparison_results['only_local']:
+                print(f"  - Pergunta: {card.pergunta[:70]}... (ID: {card.id_unico})")
+        else:
+            print("\nNenhum cartão encontrado APENAS NO REPOSITÓRIO LOCAL.")
+
+        if comparison_results['only_anki']:
+            print("\nCartões APENAS NO ANKI (não estão no repositório local):")
+            for note in comparison_results['only_anki']:
+                pergunta = note['fields']['Pergunta']['value'] if 'Pergunta' in note['fields'] else 'N/A'
+                print(f"  - Pergunta: {pergunta[:70]}... (ID: {note['fields']['ID_Unico']['value']})")
+        else:
+            print("\nNenhum cartão encontrado APENAS NO ANKI.")
+
+        if comparison_results['different']:
+            print("\nCartões DIFERENTES (existem em ambos, mas com conteúdo divergente):")
+            for diff in comparison_results['different']:
+                local_card = diff['local']
+                anki_note = diff['anki']
+                print(f"  - Pergunta: {local_card.pergunta[:70]}... (ID: {local_card.id_unico})")
+                print(f"    Local: Pergunta='{local_card.pergunta[:50]}...', Resposta='{local_card.resposta[:50]}...', Tags={local_card.tags}")
+                print(f"    Anki:  Pergunta='{anki_note['fields']['Pergunta']['value'][:50]}...', Resposta='{anki_note['fields']['Resposta']['value'][:50]}...', Tags={anki_note['tags']}")
+        else:
+            print("\nNenhum cartão encontrado com CONTEÚDO DIVERGENTE.")
+
+        if comparison_results['synced']:
+            print("\nCartões SINCRONIZADOS (existem em ambos e são idênticos):")
+            for card in comparison_results['synced']:
+                print(f"  - Pergunta: {card.pergunta[:70]}... (ID: {card.id_unico})")
+        else:
+            print("\nNenhum cartão SINCRONIZADO encontrado.")
+
+        print("\n--- Fim do Relatório de Comparação ---")
+        return
+
     deck_names = connector._invoke('deckNames')
     if not deck_names:
         print("Nenhum baralho encontrado no Anki.")
@@ -56,8 +90,18 @@ def handle_inspect(args):
 
     print("\nBaralhos encontrados:")
     for deck_name in sorted(deck_names):
+        # Filtrar por caminho se args.path for fornecido
+        if args.path:
+            # Converte o caminho local para o nome esperado do baralho Anki
+            # Assume que o diretório raiz do projeto é o CWD
+            expected_anki_deck_prefix = get_anki_deck_name_from_path(Path(args.path), Path('.'))
+            
+            # Verifica se o nome do baralho Anki começa com o prefixo esperado
+            if not deck_name.startswith(expected_anki_deck_prefix):
+                continue
+
         print(f"- {deck_name}")
-        if args.details:
+        if not args.decks_only and args.details:
             # Obter notas para o baralho atual
             query = f'deck:"{deck_name}"'
             note_ids = connector._invoke('findNotes', query=query)
@@ -176,6 +220,21 @@ def main():
         '--details',
         action='store_true',
         help="Mostra detalhes das notas em cada baralho."
+    )
+    parser_inspect.add_argument(
+        '--decks-only',
+        action='store_true',
+        help="Mostra apenas os nomes dos baralhos, sem detalhes das notas."
+    )
+    parser_inspect.add_argument(
+        '--path',
+        type=str,
+        help="Caminho para um diretório local para inspecionar baralhos e notas correspondentes."
+    )
+    parser_inspect.add_argument(
+        '--compare-local',
+        action='store_true',
+        help="Compara os flashcards do Anki com os do repositório local."
     )
     parser_inspect.set_defaults(func=handle_inspect)
 

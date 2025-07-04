@@ -1,0 +1,22 @@
+pergunta,resposta
+Qual o propósito do comando `dig`?,"É uma ferramenta flexível para interrogar servidores de nome DNS, usada para troubleshooting."
+Como fazer uma consulta DNS simples para um registro A com `dig`?,`dig <nome_do_domínio>` (ex: `dig www.google.com`)
+Como especificar o servidor DNS a ser consultado com `dig`?,`dig @<servidor> <nome_do_domínio>` (ex: `dig @8.8.8.8 www.google.com`)
+"Como solicitar um tipo de registro específico com `dig` (ex: MX, AAAA, TXT)?",`dig <nome_do_domínio> <tipo>` (ex: `dig google.com MX`)
+Como fazer uma busca reversa (PTR) simplificada com `dig`?,`dig -x <endereço_ip>` (ex: `dig -x 8.8.8.8`)
+Qual opção do `dig` solicita uma transferência de zona completa (AXFR)?,`-t AXFR`
+"Qual opção do `dig` ativa o modo 'trace', mostrando o caminho da delegação desde os servidores raiz?",`+trace`
+"Qual opção do `dig` fornece uma resposta curta, mostrando apenas o dado do registro (ex: o endereço IP)?",`+short`
+Como desativar a seção de comentários e estatísticas para uma saída mais limpa com `dig`?,"`+nocomments +nostats +noquestion +noauthority +noadditional` ou, de forma mais simples, `+noall +answer`"
+"Na saída do `dig`, o que a seção `QUESTION` mostra?",A pergunta que foi enviada ao servidor DNS.
+"Na saída do `dig`, o que a seção `ANSWER` mostra?",A resposta direta para a pergunta feita.
+"Na saída do `dig`, o que a seção `AUTHORITY` mostra?",Os servidores de nome que são autoritativos para o domínio consultado.
+"Na saída do `dig`, o que a seção `ADDITIONAL` mostra?","Registros adicionais que podem ser úteis, como os endereços IP dos servidores de nome listados na seção AUTHORITY."
+"Na saída do `dig`, o que o status `NOERROR` significa?","A consulta foi bem-sucedida, e uma resposta foi recebida (mesmo que a resposta seja 'nenhum registro encontrado')."
+"Na saída do `dig`, o que o status `NXDOMAIN` significa?","'Non-Existent Domain', o domínio consultado não existe."
+"Na saída do `dig`, o que o status `SERVFAIL` significa?",O servidor DNS falhou ao processar a requisição.
+"Na saída do `dig`, o que o status `REFUSED` significa?",O servidor DNS recusou-se a responder à consulta.
+Qual opção do `dig` força a consulta via TCP em vez de UDP?,`+tcp`
+Qual opção do `dig` desativa a busca recursiva (pede ao servidor para não resolver a consulta ele mesmo)?,`+norecurse`
+"Como exibir a resposta completa, incluindo o cabeçalho da consulta, com `dig`?",`+qr` (query request)
+Qual arquivo de configuração o `dig` (e outros resolvedores) usa para encontrar os servidores DNS padrão?,`/etc/resolv.conf`

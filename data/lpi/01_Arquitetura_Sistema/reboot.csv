@@ -1,0 +1,14 @@
+pergunta,resposta
+Qual o propósito principal do comando `reboot`?,Reiniciar a máquina.
+O comando `reboot` é equivalente a qual comando `shutdown`?,`shutdown -r now`
+Qual opção do `reboot` força uma reinicialização imediata sem contatar o sistema init (uma ação perigosa)?,`-f` ou `--force`
+Por que o uso de `reboot -f` é considerado perigoso?,"Porque ele não desmonta os sistemas de arquivos de forma limpa, o que pode levar à corrupção de dados."
+Qual opção do `reboot` impede a sincronização dos discos antes de reiniciar?,`-n` ou `--no-sync`
+Qual opção do `reboot` impede o envio da mensagem de aviso (wall message) para os usuários logados?,`--no-wall`
+Qual opção do `reboot` apenas escreve o registro de desligamento no arquivo `wtmp` sem de fato reiniciar?,`-w` ou `--wtmp-only`
+Qual opção do `reboot` impede que o registro de desligamento seja escrito no arquivo `wtmp`?,`-d` ou `--no-wtmp`
+"Em um sistema `systemd`, qual comando do `systemctl` é o equivalente moderno e seguro para `reboot`?",`systemctl reboot`
+Qual a diferença entre `systemctl reboot` e `systemctl reboot -f`?,`systemctl reboot` é um reinício limpo e ordenado. `systemctl reboot -f` é um reinício forçado que não desliga os serviços de forma limpa.
+Qual a diferença entre `reboot -f` e `systemctl reboot -f`?,"`reboot -f` é ainda mais abrupto, não contatando o init. É mais parecido com `systemctl reboot -ff`."
+O que o comando `halt` faz por padrão em um sistema `systemd`?,"Ele para a CPU (halt), mas deixa a máquina ligada."
+O que o comando `poweroff` faz por padrão em um sistema `systemd`?,Ele para a CPU e envia um comando ACPI para a placa-mãe para cortar a energia.

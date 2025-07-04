@@ -1,0 +1,24 @@
+pergunta,resposta
+Qual o propósito do comando `ss`?,É um utilitário para investigar sockets (o sucessor moderno do `netstat`).
+Como o `ss` se compara ao `netstat`?,É mais rápido e exibe mais informações de estado e TCP.
+"No `ss`, qual opção exibe todos os sockets (ouvindo e não ouvindo)?",`-a` ou `--all`
+"No `ss`, qual opção exibe apenas os sockets que estão 'ouvindo' (listening)?",`-l` ou `--listening`
+"No `ss`, qual opção exibe apenas as conexões TCP?",`-t` ou `--tcp`
+"No `ss`, qual opção exibe apenas as conexões UDP?",`-u` ou `--udp`
+"No `ss`, qual opção exibe apenas os sockets Unix?",`-x` ou `--unix`
+"No `ss`, qual opção exibe apenas os sockets RAW?",`-w` ou `--raw`
+"No `ss`, qual opção mostra o processo (PID/nome) que está usando o socket?",`-p` ou `--processes`
+"No `ss`, qual opção mostra endereços e portas de forma numérica (não tenta resolver nomes)?",`-n` ou `--numeric`
+"No `ss`, qual opção tenta resolver nomes numéricos de endereços/portas?",`-r` ou `--resolve`
+"No `ss`, qual opção exibe informações detalhadas do socket (como UID e inode)?",`-e` ou `--extended`
+"No `ss`, qual opção exibe informações de timers (como retransmissão, keepalive)?",`-o` ou `--options`
+"No `ss`, qual opção exibe informações internas de TCP (como wscale, rto, cwnd)?",`-i` ou `--info`
+"No `ss`, qual opção exibe o uso de memória do socket?",`-m` ou `--memory`
+"No `ss`, qual opção imprime um resumo de estatísticas?",`-s` ou `--summary`
+Como filtrar a saída do `ss` para mostrar apenas sockets em um estado específico (ex: 'established')?,`ss state established`
+Como filtrar a saída do `ss` para mostrar conexões para uma porta de destino específica (ex: porta 22/ssh)?,`ss dst :ssh` ou `ss dport = :22`
+Como filtrar a saída do `ss` para mostrar conexões de uma porta de origem específica (ex: porta 80/http)?,`ss src :http` ou `ss sport = :80`
+Como combinar filtros no `ss` (ex: mostrar conexões ssh estabelecidas)?,`ss state established '( dport = :ssh or sport = :ssh )'`
+"Qual é o comando `ss` equivalente a `netstat -tuln` (mostrar todos os sockets TCP e UDP que estão ouvindo, de forma numérica)?",`ss -tuln`
+"Qual é o comando `ss` equivalente a `netstat -tan` (mostrar todos os sockets TCP, de forma numérica)?",`ss -tan`
+Qual é o comando `ss` equivalente a `netstat -anp` (mostrar todos os sockets com os processos associados)?,`ss -anp`

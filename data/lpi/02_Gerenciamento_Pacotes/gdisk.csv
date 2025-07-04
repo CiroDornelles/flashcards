@@ -1,0 +1,21 @@
+pergunta,resposta
+Qual o propósito principal do comando `gdisk`?,"É uma ferramenta de particionamento de disco interativa, similar ao `fdisk`, mas projetada especificamente para tabelas de partição GUID (GPT)."
+O que o `gdisk` faz se for executado em um disco que possui uma tabela de partição MBR?,"Ele realiza uma conversão em memória da tabela MBR para o formato GPT, permitindo ao usuário salvar o novo layout."
+Como listar a tabela de partição de um disco usando `gdisk` sem entrar no modo interativo?,`gdisk -l /dev/sda`
+"No modo interativo do `gdisk`, qual comando exibe o menu de ajuda com os comandos disponíveis?",`?`
+"No modo interativo do `gdisk`, qual comando imprime a tabela de partição atual?",`p`
+"No modo interativo do `gdisk`, qual comando cria uma nova partição?",`n`
+"No modo interativo do `gdisk`, qual comando deleta uma partição?",`d`
+"No modo interativo do `gdisk`, qual comando altera o nome de uma partição?",`c`
+"No modo interativo do `gdisk`, qual comando altera o tipo de uma partição (usando códigos de tipo GUID)?",`t`
+"No modo interativo do `gdisk`, qual comando grava as alterações no disco e sai do programa?",`w`
+"No modo interativo do `gdisk`, qual comando sai sem salvar nenhuma alteração?",`q`
+"No modo interativo do `gdisk`, qual comando entra no menu de recuperação e transformação?",`r`
+Para que serve o menu de recuperação (`r`) do `gdisk`?,"Para acessar ferramentas que podem reparar estruturas de dados GPT danificadas, como recriar o cabeçalho GPT a partir do seu backup."
+"No modo interativo do `gdisk`, qual comando entra no menu de opções de especialista (expert)?",`x`
+O que é um 'Hybrid MBR' e o `gdisk` pode criá-lo?,"É uma MBR não padrão que 'espelha' até três partições GPT para que sistemas operacionais mais antigos e sem suporte a GPT possam inicializar. Sim, o `gdisk` pode criá-lo, mas é uma operação de risco."
+Qual é o código de tipo GUID para uma partição de sistema de arquivos Linux no `gdisk`?,`8300`
+Qual é o código de tipo GUID para uma partição de swap Linux no `gdisk`?,`8200`
+Qual é o código de tipo GUID para uma partição de boot EFI System Partition (ESP)?,`EF00`
+Qual a principal vantagem do `gdisk` sobre o `fdisk` para trabalhar com discos GPT?,"O `gdisk` é uma ferramenta especialista em GPT, oferecendo mais funcionalidades e opções de recuperação específicas para esse tipo de tabela de partição."
+Quais são as ferramentas irmãs do `gdisk` que também fazem parte do pacote `gptfdisk`?,"`cgdisk` (uma versão baseada em curses, mais visual) e `sgdisk` (uma versão de linha de comando para scripts)."

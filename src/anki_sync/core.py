@@ -3,13 +3,15 @@ from pathlib import Path
 import pandas as pd
 
 from .models import Deck, Flashcard
+from .anki_connector import AnkiConnector # Importar AnkiConnector
 
 def build_deck_tree(root_path='.'):
     """
     Função principal de serialização. Caminha pela árvore de diretórios e constrói o modelo de dados.
     """
-    root_path = Path(root_path)
-    root_deck = Deck(root_path)
+    root_path = Path(root_path).resolve()
+    # Passa o próprio root_path para o construtor do Deck raiz
+    root_deck = Deck(root_path, project_root=root_path)
     
     # Dicionário para manter o controle dos decks já criados
     deck_map = {root_path: root_deck}
@@ -24,7 +26,8 @@ def build_deck_tree(root_path='.'):
         for part in parent_dir.relative_to(root_path).parts:
             sub_deck_path = current_deck.path / part
             if sub_deck_path not in deck_map:
-                new_deck = Deck(sub_deck_path, parent_deck=current_deck)
+                # Passa o project_root para os sub-decks também
+                new_deck = Deck(sub_deck_path, parent_deck=current_deck, project_root=root_path)
                 current_deck.sub_decks.append(new_deck)
                 deck_map[sub_deck_path] = new_deck
                 current_deck = new_deck
@@ -95,6 +98,8 @@ def build_deck_tree(root_path='.'):
 
     return root_deck
 
+
+
 def sync_deck_tree(deck_node, connector):
     """
     Percorre a árvore de decks e sincroniza com o Anki.
@@ -106,18 +111,132 @@ def sync_deck_tree(deck_node, connector):
     print(f"\nSincronizando baralho: {deck_node.anki_deck_name}")
     connector.create_deck(deck_node.anki_deck_name)
 
-    # Lógica para sincronizar grupos de opções viria aqui
+    # Lógica para sincronizar o modelo de nota, se definido no config
+    model_config = deck_node.config.get('model')
+    if model_config and model_config.get('name'):
+        print(f"  - Garantindo que o modelo de nota '{model_config['name']}' exista...")
+        connector.create_note_model(
+            model_name=model_config['name'],
+            field_names=model_config.get('fields', []),
+            templates=model_config.get('templates', []),
+            css=model_config.get('css', '')
+        )
 
     # Sincroniza os flashcards do baralho atual
+    model_name_to_use = deck_node.config.get('model', {}).get('name', 'Basic') # Fallback para 'Basic'
     for card in deck_node.flashcards:
         # Adiciona tags extras da configuração
         all_tags = card.tags + deck_node.config.get('metadata', {}).get('extraTags', [])
         
         connector.sync_note(
             deck_name=deck_node.anki_deck_name,
-            model_name="LPI-Flashcard", # Hardcoded por enquanto
+            model_name=model_name_to_use,
             pergunta=card.pergunta,
             resposta=card.resposta,
             tags=all_tags,
             id_unico=card.id_unico
         )
+
+def compare_flashcards_with_anki(root_path: Path, connector: AnkiConnector):
+    """
+    Compara flashcards locais com flashcards do Anki e retorna um relatório detalhado.
+    """
+    print("Construindo árvore de flashcards local...")
+    local_root_deck = build_deck_tree(root_path)
+
+    local_flashcards_map = {}
+    def flatten_deck(deck):
+        for card in deck.flashcards:
+            local_flashcards_map[card.id_unico] = card
+        for sub_deck in deck.sub_decks:
+            flatten_deck(sub_deck)
+    flatten_deck(local_root_deck)
+
+    print("Buscando todos os flashcards do Anki...")
+    all_anki_note_ids = connector._invoke('findNotes', query='')
+    anki_notes_info = {}
+    if all_anki_note_ids:
+        batch_size = 1000
+        for i in range(0, len(all_anki_note_ids), batch_size):
+            batch_ids = all_anki_note_ids[i:i + batch_size]
+            batch_info = connector._invoke('notesInfo', notes=batch_ids)
+            for note in batch_info:
+                if 'ID_Unico' in note['fields'] and note['fields']['ID_Unico']['value']:
+                    anki_notes_info[note['fields']['ID_Unico']['value']] = note
+                else:
+                    print(f"Aviso: Nota Anki {note.get('noteId')} não possui campo ID_Unico. Ignorando para comparação.", file=sys.stderr)
+
+    only_local = []
+    only_anki = []
+    different = []
+    synced = []
+
+    for local_id, local_card in local_flashcards_map.items():
+        if local_id in anki_notes_info:
+            anki_note = anki_notes_info[local_id]
+            anki_pergunta = anki_note['fields']['Pergunta']['value']
+            anki_resposta = anki_note['fields']['Resposta']['value']
+            anki_tags = set(anki_note['tags'])
+
+            is_different = False
+            if local_card.pergunta != anki_pergunta or \
+               local_card.resposta != anki_resposta or \
+               set(local_card.tags) != anki_tags:
+                is_different = True
+
+            if is_different:
+                different.append({
+                    'local': local_card,
+                    'anki': anki_note
+                })
+            else:
+                synced.append(local_card)
+        else:
+            only_local.append(local_card)
+
+    # A lista 'synced' deve conter todos os cartões que existem em ambos e não são diferentes
+    # A forma atual já faz isso, mas vamos garantir que a lógica esteja clara.
+    # O problema é que 'synced' só é preenchido se o cartão não for 'different'.
+    # A lista 'only_anki' já está correta.
+
+    # Vamos reconstruir as listas para maior clareza e correção
+    final_only_local = []
+    final_only_anki = []
+    final_different = []
+    final_synced = []
+
+    # Iterar sobre os cartões locais
+    for local_id, local_card in local_flashcards_map.items():
+        if local_id in anki_notes_info:
+            anki_note = anki_notes_info[local_id]
+            anki_pergunta = anki_note['fields']['Pergunta']['value']
+            anki_resposta = anki_note['fields']['Resposta']['value']
+            anki_tags = set(anki_note['tags'])
+
+            is_different = False
+            if local_card.pergunta != anki_pergunta or \
+               local_card.resposta != anki_resposta or \
+               set(local_card.tags) != anki_tags:
+                is_different = True
+
+            if is_different:
+                final_different.append({
+                    'local': local_card,
+                    'anki': anki_note
+                })
+            else:
+                final_synced.append(local_card)
+        else:
+            final_only_local.append(local_card)
+
+    # Iterar sobre os cartões do Anki para encontrar os que só existem no Anki
+    for anki_id, anki_note in anki_notes_info.items():
+        if anki_id not in local_flashcards_map:
+            final_only_anki.append(anki_note)
+
+    return {
+        'only_local': final_only_local,
+        'only_anki': final_only_anki,
+        'different': final_different,
+        'synced': final_synced
+    }

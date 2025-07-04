@@ -1,0 +1,19 @@
+pergunta,resposta
+Qual o propósito do comando `host`?,É um utilitário simples para realizar buscas DNS (DNS lookups).
+Como usar o `host` para encontrar o endereço IP de um nome de domínio (ex: www.google.com)?,`host www.google.com`
+Como usar o `host` para fazer uma busca reversa (encontrar o nome de domínio de um endereço IP)?,`host 8.8.8.8`
+Como especificar um servidor DNS específico para a consulta com o `host`?,`host <name> <server>` (ex: `host www.google.com 1.1.1.1`)
+"No `host`, qual opção solicita um tipo de registro específico (ex: MX, NS, SOA)?",`-t type` (ex: `host -t MX google.com`)
+"No `host`, qual opção solicita 'todos' os tipos de registro (equivalente a -v -t ANY)?",`-a`
+"No `host`, qual opção força o uso de TCP para a consulta em vez de UDP?",`-T`
+"No `host`, qual opção realiza uma consulta não recursiva (pede ao servidor para não resolver o nome ele mesmo)?",`-r`
+"No `host`, qual opção ativa a saída verbosa/debug?",`-v` ou `-d`
+"No `host`, qual opção força o uso de transporte IPv4 para a consulta?",`-4`
+"No `host`, qual opção força o uso de transporte IPv6 para a consulta?",`-6`
+"No `host`, qual opção tenta uma transferência de zona para um domínio?",`-l`
+"No `host`, como especificar a classe da consulta (o padrão é IN para Internet)?",`-c class` (ex: `-c CH` para Chaosnet)
+"Na saída de `host`, o que 'has address' indica?",Um registro A (endereço IPv4).
+"Na saída de `host`, o que 'has IPv6 address' indica?",Um registro AAAA (endereço IPv6).
+"Na saída de `host`, o que 'mail is handled by' indica?",Um registro MX (Mail Exchanger).
+"Na saída de `host`, o que 'domain name pointer' indica?",Um registro PTR (usado em buscas reversas).
+Qual é a principal diferença entre `host` e `dig`?,"`host` é mais simples e direto para consultas rápidas, enquanto `dig` é mais poderoso e verboso, projetado para diagnósticos e scripts mais complexos."

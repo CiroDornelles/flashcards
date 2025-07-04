@@ -52,19 +52,41 @@ class Deck:
     """
     Representa um diretório no sistema de arquivos e, consequentemente, um baralho no Anki.
     """
-    def __init__(self, path, parent_deck=None):
+    def __init__(self, path, parent_deck=None, project_root=None):
         self.path = Path(path)
         self.name = self.path.name
         self.parent = parent_deck
-        
+        self.project_root = project_root or (parent_deck.project_root if parent_deck else Path('.'))
+
         self.anki_deck_name = self._build_anki_deck_name()
         self.config = DeckConfig(self.path / 'deck_config.json', self.parent.config if self.parent else None)
         
         self.flashcards = []
         self.sub_decks = []
 
-    def _build_anki_deck_name(self):
-        """Constrói o nome hierárquico do baralho para o Anki."""
-        if not self.parent or not self.parent.anki_deck_name:
-            return self.name
-        return f"{self.parent.anki_deck_name}::{self.name}"
+    def _build_anki_deck_name(self, root_path_base="data"):
+        """
+        Constrói o nome hierárquico do baralho para o Anki a partir do caminho relativo ao project_root.
+        """
+        try:
+            relative_path = self.path.relative_to(self.project_root)
+        except ValueError:
+            relative_path = Path(self.name)
+
+        parts = list(relative_path.parts)
+        
+        # Se o baralho for o próprio diretório 'data', o nome deve ser apenas 'flashcards'
+        if len(parts) == 1 and parts[0] == root_path_base:
+             return "flashcards"
+
+        try:
+            # Encontra o índice do diretório base (ex: 'data')
+            base_index = parts.index(root_path_base)
+            # Pega todas as partes do caminho *após* o diretório base
+            relevant_parts = parts[base_index + 1:]
+        except ValueError:
+            # Se 'data' não for encontrado, usa as partes do caminho relativo como fallback
+            relevant_parts = parts
+
+        # Adiciona o prefixo global e junta as partes
+        return "::".join(["flashcards"] + relevant_parts)

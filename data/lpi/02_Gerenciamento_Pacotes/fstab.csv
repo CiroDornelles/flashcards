@@ -1,0 +1,21 @@
+pergunta,resposta
+Qual o propósito do arquivo `/etc/fstab`?,É um arquivo de configuração que contém informações estáticas sobre os sistemas de arquivos e áreas de swap que o sistema pode montar.
+Quantas colunas (campos) existem em uma linha padrão do `/etc/fstab`?,Seis.
+O que o primeiro campo do `/etc/fstab` especifica?,"O dispositivo a ser montado. Pode ser um nome de dispositivo (ex: `/dev/sda1`), um `LABEL`, um `UUID`, um `PARTUUID` ou um recurso de rede."
+Qual é a maneira recomendada de especificar o dispositivo no primeiro campo do `/etc/fstab` e por quê?,"Usando `UUID=<uuid>` ou `LABEL=<label>`, porque os nomes de dispositivo como `/dev/sda1` podem mudar se discos forem adicionados ou removidos."
+O que o segundo campo do `/etc/fstab` especifica?,"O ponto de montagem (mount point) no sistema de arquivos (ex: `/home`, `/var`)."
+Qual valor deve ser usado no segundo campo para uma área de swap?,`none`
+O que o terceiro campo do `/etc/fstab` especifica?,"O tipo de sistema de arquivos (ex: `ext4`, `xfs`, `vfat`, `swap`, `nfs`)."
+O que o quarto campo do `/etc/fstab` especifica?,"As opções de montagem (mount options), separadas por vírgula."
+O que a opção de montagem `defaults` geralmente implica?,"Um conjunto de opções padrão sensatas, tipicamente: `rw`, `suid`, `dev`, `exec`, `auto`, `nouser`, `async`."
+O que a opção de montagem `noauto` faz?,Impede que o sistema de arquivos seja montado automaticamente durante o boot (com `mount -a`).
+O que a opção de montagem `user` permite?,Permite que um usuário comum (não-root) monte o sistema de arquivos.
+O que a opção de montagem `nofail` faz?,Impede que o sistema entre em modo de emergência se o dispositivo não for encontrado durante o boot. É útil para mídias removíveis.
+O que o quinto campo do `/etc/fstab` especifica?,A frequência de backup pelo comando `dump`. Um valor de `0` (padrão) significa que não será feito backup.
+O que o sexto campo do `/etc/fstab` especifica?,A ordem de verificação pelo `fsck` no momento do boot.
+Qual deve ser o valor do sexto campo para o sistema de arquivos raiz (`/`)?,"`1`, para que ele seja o primeiro a ser verificado."
+Qual deve ser o valor do sexto campo para outros sistemas de arquivos que precisam ser verificados?,"`2`, para que sejam verificados após o raiz. Sistemas de arquivos com o mesmo número podem ser verificados em paralelo."
+Qual deve ser o valor do sexto campo para sistemas de arquivos que não precisam de verificação (como `swap` ou `proc`)?,`0`
+Qual comando deve ser executado após modificar o `/etc/fstab` em um sistema `systemd` para garantir que as alterações sejam reconhecidas?,`systemctl daemon-reload`
+Como montar todos os sistemas de arquivos listados no `/etc/fstab` (exceto os marcados com `noauto`)?,`mount -a`
+Como identificar o `UUID` de uma partição para usar no `/etc/fstab`?,Usando o comando `blkid /dev/sdXN`.

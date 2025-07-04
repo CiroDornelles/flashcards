@@ -13,11 +13,12 @@ class AnkiConnector:
 
     def _invoke(self, action, **params):
         """Método base para fazer uma chamada à API."""
-        if self.dry_run and action not in ['version', 'deckNames', 'modelNames', 'findNotes', 'notesInfo']:
+        if self.dry_run:
             print(f"[DRY RUN] Anki Action: {action} com params: {params}")
-            # Para simular a criação, podemos retornar um ID falso
             if action == 'addNote':
                 return 1234567890
+            elif action == 'modelUsages':
+                return {}
             return None
 
         payload = {'action': action, 'version': 6, 'params': params}
@@ -90,7 +91,7 @@ class AnkiConnector:
         # Criar o modelo com a estrutura correta
         model_params = {
             "modelName": model_name,
-            "inOrderFields": [f['name'] for f in fields], # Usar apenas os nomes dos campos
+            "inOrderFields": fields, # Usar apenas os nomes dos campos
             "cardTemplates": card_templates,
             "css": css,
             "isCloze": False

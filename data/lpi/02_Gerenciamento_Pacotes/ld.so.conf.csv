@@ -1,0 +1,11 @@
+pergunta,resposta
+Qual o propósito do arquivo `/etc/ld.so.conf`?,Especificar os diretórios nos quais o 'dynamic linker' deve procurar por bibliotecas compartilhadas.
+Qual comando lê o arquivo `/etc/ld.so.conf` para atualizar o cache do linker?,`ldconfig`
+Qual é a sintaxe básica do arquivo `/etc/ld.so.conf`?,"Uma lista de caminhos de diretórios, um por linha."
+O que a diretiva `include` dentro do `/etc/ld.so.conf` faz?,"Ela permite incluir outros arquivos de configuração, geralmente usando um padrão de glob."
+Qual é a diretiva de `include` mais comum encontrada no `/etc/ld.so.conf`?,`include /etc/ld.so.conf.d/*.conf`
+Qual o propósito do diretório `/etc/ld.so.conf.d/`?,"É a maneira moderna e modular de adicionar caminhos de bibliotecas. Em vez de editar o `/etc/ld.so.conf` principal, pacotes de software podem adicionar seus próprios arquivos `.conf` neste diretório."
+Como um administrador deve adicionar um novo caminho de biblioteca (ex: `/usr/local/lib`) ao sistema?,Criando um novo arquivo em `/etc/ld.so.conf.d/` (ex: `local.conf`) e adicionando o caminho `/usr/local/lib` a ele.
+"Depois de adicionar um novo arquivo `.conf` em `/etc/ld.so.conf.d/`, qual é o próximo passo obrigatório?",Executar o comando `ldconfig` como root para que o novo diretório seja varrido e o cache `/etc/ld.so.cache` seja reconstruído.
+O `ldconfig` varre os diretórios `/lib` e `/usr/lib` mesmo que eles não estejam no `ld.so.conf`?,"Sim, esses são diretórios confiáveis (trusted directories) e são sempre varridos."
+Por que é preferível usar o diretório `/etc/ld.so.conf.d/` em vez de editar diretamente o `/etc/ld.so.conf`?,"É mais organizado, evita conflitos com arquivos de pacotes e facilita a automação e a manutenção do sistema."

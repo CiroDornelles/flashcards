@@ -1,0 +1,24 @@
+pergunta,resposta
+Qual o propósito do comando `netstat`?,"Exibir conexões de rede, tabelas de roteamento, estatísticas de interface, conexões masquerade e associações multicast."
+"No `netstat`, qual opção exibe a tabela de roteamento do kernel? (Equivalente a `route -e`)",`-r` ou `--route`
+"No `netstat`, qual opção exibe a tabela de interfaces de rede?",`-i` ou `--interfaces`
+"No `netstat`, qual opção exibe um resumo de estatísticas para cada protocolo?",`-s` ou `--statistics`
+"No `netstat`, qual opção exibe todas as conexões (tanto as que estão 'ouvindo' (listening) quanto as que não estão)?",`-a` ou `--all`
+"No `netstat`, qual opção exibe apenas as conexões TCP?",`-t` ou `--tcp`
+"No `netstat`, qual opção exibe apenas as conexões UDP?",`-u` ou `--udp`
+"No `netstat`, qual opção exibe apenas os sockets RAW?",`-w` ou `--raw`
+"No `netstat`, qual opção exibe apenas os sockets Unix?",`-x` ou `--unix`
+"No `netstat`, qual opção mostra o PID e o nome do programa associado a cada socket?",`-p` ou `--program`
+"No `netstat`, qual opção mostra endereços, portas e usuários de forma numérica (não tenta resolver nomes)?",`-n` ou `--numeric`
+"No `netstat`, qual opção força a exibição contínua das informações a cada segundo?",`-c` ou `--continuous`
+"No `netstat`, qual opção exibe informações adicionais/estendidas? (Pode ser usada duas vezes para mais detalhes)",`-e` ou `--extend`
+"No `netstat`, qual opção exibe informações relacionadas a timers de rede?",`-o` ou `--timers`
+"Na saída de `netstat`, o que o estado `LISTEN` significa?",O socket está esperando por uma conexão de entrada.
+"Na saída de `netstat`, o que o estado `ESTABLISHED` significa?",O socket tem uma conexão funcional estabelecida.
+"Na saída de `netstat`, o que o estado `TIME_WAIT` significa?",O socket está esperando após o fechamento para lidar com pacotes que ainda possam estar na rede.
+"Na saída de `netstat`, o que o estado `CLOSE_WAIT` significa?","A ponta remota da conexão foi desligada, e o sistema está esperando o programa local fechar o socket."
+"Na saída de `netstat`, o que o estado `SYN_SENT` significa?",O socket está tentando ativamente estabelecer uma conexão.
+"Na saída de `netstat`, o que o estado `SYN_RECV` significa?",Uma requisição de conexão foi recebida da rede.
+Qual comando moderno é o sucessor do `netstat` para inspecionar sockets?,`ss`
+Qual comando moderno é o sucessor do `netstat -r`?,`ip route`
+Qual comando moderno é o sucessor do `netstat -i`?,`ip -s link`

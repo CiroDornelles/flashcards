@@ -1,0 +1,8 @@
+#!/bin/bash
+# Wrapper script to execute the flashcards python CLI
+
+# Get the absolute path of the script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Execute the python script
+python3 "${SCRIPT_DIR}/src/anki_sync/cli.py" "$@"

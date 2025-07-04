@@ -1,0 +1,19 @@
+pergunta,resposta
+O que é LVM?,Sigla para Logical Volume Management (Gerenciamento de Volumes Lógicos). É uma camada de abstração sobre os dispositivos de armazenamento físico que permite um gerenciamento de volumes mais flexível.
+Quais são os três componentes principais da arquitetura LVM?,"Physical Volumes (PVs), Volume Groups (VGs), e Logical Volumes (LVs)."
+O que é um Physical Volume (PV) no LVM?,"É um dispositivo de bloco físico (como uma partição de disco, ex: `/dev/sda2`) que foi inicializado para ser usado pelo LVM."
+Qual comando inicializa um dispositivo para ser um PV?,`pvcreate` (ex: `pvcreate /dev/sdb1`)
+O que é um Volume Group (VG) no LVM?,É um 'pool' de armazenamento criado a partir de um ou mais Physical Volumes. É a unidade central de armazenamento do LVM.
+Qual comando cria um VG a partir de um ou mais PVs?,`vgcreate` (ex: `vgcreate my_volume_group /dev/sdb1 /dev/sdc1`)
+O que é um Logical Volume (LV) no LVM?,É o equivalente a uma partição em um esquema tradicional. Um LV é 'esculpido' a partir do espaço livre em um Volume Group e é o que de fato é formatado com um sistema de arquivos e montado.
+Qual comando cria um LV a partir de um VG?,`lvcreate` (ex: `lvcreate -L 10G -n my_logical_volume my_volume_group`)
+Qual é a principal vantagem de usar LVM em comparação com o particionamento padrão?,"Flexibilidade. Volumes lógicos podem ser redimensionados (aumentados ou diminuídos) facilmente, e podem se estender por múltiplos discos físicos."
+É possível adicionar mais espaço a um Volume Group que está ficando cheio?,"Sim, basta adicionar um novo Physical Volume ao Volume Group com o comando `vgextend`."
+É possível aumentar o tamanho de um Logical Volume 'online' (enquanto está em uso)?,"Sim, depois de aumentar o LV com `lvextend`, o sistema de arquivos sobre ele pode ser redimensionado (ex: com `resize2fs` para ext4 ou `xfs_growfs` para XFS)."
+O que são 'snapshots' no LVM?,São cópias 'point-in-time' de um Logical Volume. Eles são eficientes em espaço (usando copy-on-write) e são extremamente úteis para fazer backups consistentes de sistemas de arquivos ativos.
+Onde os arquivos de dispositivo para os Logical Volumes são criados?,Geralmente em `/dev/<nome_do_vg>/<nome_do_lv>` ou em `/dev/mapper/<nome_do_vg>-<nome_do_lv>`.
+Qual comando exibe informações sobre os Physical Volumes?,`pvs` ou `pvdisplay`
+Qual comando exibe informações sobre os Volume Groups?,`vgs` ou `vgdisplay`
+Qual comando exibe informações sobre os Logical Volumes?,`lvs` ou `lvdisplay`
+O LVM adiciona alguma sobrecarga de performance?,A sobrecarga é geralmente considerada mínima ou insignificante para a maioria das cargas de trabalho.
+O que é 'thin provisioning' no LVM?,"É uma funcionalidade avançada que permite alocar um 'thin pool' e criar volumes lógicos que 'pegam emprestado' espaço do pool conforme precisam, em vez de alocar todo o espaço de uma vez."

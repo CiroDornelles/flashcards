@@ -1,0 +1,22 @@
+{
+  "model": {
+    "name": "LPI-Flashcard",
+    "fields": ["ID_Unico", "Pergunta", "Resposta"],
+    "templates": [
+      {
+        "Name": "Card 1",
+        "Front": "{{Pergunta}}",
+        "Back": "{{FrontSide}}<hr id=answer>{{Resposta}}"
+      }
+    ],
+    "css": ".card { font-family: arial; font-size: 20px; text-align: center; color: black; background-color: white; }"
+  },
+  "deckOptions": {
+    "name": "LPI_Config",
+    "new": { "steps": [15, 90], "perDay": 25 },
+    "rev": { "perDay": 150 },
+    "lapse": { "steps": [45], "leechAction": "tagOnly" }
+  },
+  "fsrs": { "enabled": true, "retention": 0.92 },
+  "metadata": { "extraTags": ["lpi", "linux"] }
+}

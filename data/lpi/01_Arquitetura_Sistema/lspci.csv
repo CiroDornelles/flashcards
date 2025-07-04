@@ -1,0 +1,31 @@
+pergunta,resposta
+Qual o propósito principal do comando `lspci`?,Exibir informações sobre as controladoras PCI no sistema e os dispositivos conectados a elas.
+Como exibir uma lista simples de todos os dispositivos PCI?,`lspci`
+"Qual opção do `lspci` exibe um diagrama em árvore com todas as controladoras, pontes e dispositivos?",`-t`
+Qual opção do `lspci` exibe informações detalhadas (verbose) sobre todos os dispositivos?,`-v`
+Como obter informações ainda mais detalhadas (very verbose) com o `lspci`?,`-vv`
+"Qual opção do `lspci` exibe tudo que o comando consegue analisar, por mais irrelevante que pareça?",`-vvv`
+Qual opção do `lspci` mostra os drivers do kernel que estão gerenciando cada dispositivo?,`-k`
+Como exibir um dump hexadecimal da área de configuração padrão de um dispositivo PCI?,`-x`
+Como exibir um dump hexadecimal de TODA a área de configuração PCI (requer root)?,`-xxx`
+Como exibir um dump hexadecimal da área de configuração estendida (4096-byte) para dispositivos PCI-X 2.0 e PCI Express?,`-xxxx`
+"Qual opção do `lspci` mostra os números de IRQ e endereços como vistos pelos próprios dispositivos no barramento PCI, em vez de como vistos pelo kernel?",`-b` (Bus-centric view)
+"Qual opção do `lspci` força a exibição dos números de domínio PCI, mesmo em máquinas com um único domínio?",`-D`
+"Como exibir os códigos de fabricante (vendor) e dispositivo como números, sem traduzi-los para nomes?",`-n`
+Como exibir os códigos de fabricante e dispositivo tanto como números quanto como nomes?,`-nn`
+Como selecionar e exibir apenas um dispositivo específico pelo seu endereço de barramento/dispositivo/função (ex: 00:02.0)?,`lspci -s 00:02.0`
+Como selecionar e exibir apenas os dispositivos de um fabricante específico usando seu ID de vendor (ex: 8086)?,`lspci -d 8086:`
+Como selecionar e exibir apenas um dispositivo específico usando seu ID de vendor e de dispositivo (ex: 8086:100e)?,`lspci -d 8086:100e`
+"Qual opção do `lspci` gera uma saída em formato legível por máquina, para uso em scripts?",`-m` ou `-mm`
+Qual a diferença entre a saída `-m` e `-mm` do `lspci`?,"`-m` é um formato antigo compatível com versões anteriores. `-mm` é o formato recomendado para scripts, com pares `tag: valor`."
+Qual opção do `lspci` permite usar um arquivo de IDs PCI alternativo?,`-i <arquivo>`
+"Qual opção do `lspci` permite ler a configuração de hardware de um arquivo gerado anteriormente por `lspci -x`, em vez de acessar o hardware real?",`-F <arquivo>`
+O que o comando `lspci -tv` faz?,Exibe a árvore de dispositivos (`-t`) com informações detalhadas (`-v`) para cada um.
+O que o comando `lspci -n` é útil para evitar?,"Consultas ao banco de dados de IDs PCI, mostrando apenas os códigos numéricos, o que pode ser mais rápido e útil para scripts."
+"Na saída de `lspci -k`, o que 'Kernel driver in use' indica?",O driver que está atualmente ativo e gerenciando o dispositivo.
+"Na saída de `lspci -k`, o que 'Kernel modules' indica?","Módulos do kernel que são capazes de gerenciar o dispositivo, mesmo que não estejam ativos para ele no momento."
+"Qual opção do `lspci` realiza uma varredura completa de todos os dispositivos, incluindo aqueles atrás de pontes mal configuradas (requer root)?",`-M` (Bus mapping mode)
+Qual opção do `lspci` consulta um banco de dados central via DNS se um ID de dispositivo não for encontrado localmente?,`-q`
+Onde o `lspci` armazena o cache de IDs consultados via DNS?,`$XDG_CACHE_HOME/pci-ids`
+Qual é o arquivo padrão que o `lspci` usa para mapear IDs de vendor e dispositivo para nomes?,`/usr/share/misc/pci.ids`
+"Como identificar um dispositivo pelo seu caminho através das pontes PCI, em vez do número do barramento?",`-P`

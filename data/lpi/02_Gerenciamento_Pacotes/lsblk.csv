@@ -1,0 +1,20 @@
+pergunta,resposta
+Qual o propósito principal do comando `lsblk`?,Listar informações sobre todos os dispositivos de bloco disponíveis ou sobre dispositivos especificados.
+Como executar o `lsblk` para ver a lista de dispositivos em seu formato de árvore padrão?,`lsblk`
+De onde o `lsblk` obtém suas informações?,Principalmente do sistema de arquivos `sysfs` e do banco de dados do `udev`.
+"Na saída do `lsblk`, o que a coluna `MAJ:MIN` representa?","Os números 'major' e 'minor' do dispositivo, que o identificam unicamente para o kernel."
+"Na saída do `lsblk`, o que a coluna `RM` indica?","Se o dispositivo é removível (removable media), como um pendrive (valor 1)."
+"Na saída do `lsblk`, o que a coluna `TYPE` indica?","O tipo do dispositivo de bloco (ex: `disk`, `part`, `rom`, `lvm`, `crypt`)."
+"Qual opção do `lsblk` exibe informações sobre os sistemas de arquivos (FSTYPE, LABEL, UUID, MOUNTPOINT)?",`-f` ou `--fs`
+"Como listar os dispositivos de bloco em um formato de lista simples, em vez de árvore?",`-l` ou `--list`
+Qual opção do `lsblk` exibe os caminhos completos dos dispositivos (ex: `/dev/sda`)?,`-p` ou `--paths`
+"Qual opção do `lsblk` exibe os tamanhos em bytes, em vez de um formato legível por humanos (K, M, G)?",`-b` ou `--bytes`
+"Como personalizar as colunas exibidas na saída do `lsblk` (ex: mostrar apenas nome, tamanho e tipo)?","`-o NAME,SIZE,TYPE`"
+Como adicionar uma coluna à saída padrão do `lsblk`?,Usando o prefixo `+` na opção `-o` (ex: `lsblk -o +UUID`).
+"Qual opção do `lsblk` exibe informações sobre o proprietário, grupo e permissões do dispositivo?",`-m` ou `--perms`
+"Qual opção do `lsblk` exibe informações sobre a topologia do dispositivo (alinhamento, tamanho dos setores, etc.)?",`-t` ou `--topology`
+Como o `lsblk` exibe os pontos de montagem de um dispositivo?,"A coluna `MOUNTPOINT` mostra um único ponto de montagem, enquanto `MOUNTPOINTS` (disponível com `-f` ou `-o`) pode mostrar múltiplos pontos de montagem."
+Qual opção do `lsblk` ignora dispositivos 'escravos' ou 'holders' e mostra apenas o dispositivo principal especificado?,`-d` ou `--nodeps`
+Como usar o `lsblk` para exibir informações sobre um disco específico e suas partições (ex: /dev/sda)?,`lsblk /dev/sda`
+"Qual opção do `lsblk` formata a saída como pares `CHAVE=""VALOR""`, útil para scripts?",`-P` ou `--pairs`
+Qual opção do `lsblk` formata a saída em JSON?,`-J` ou `--json`

@@ -1,0 +1,26 @@
+pergunta,resposta
+Qual o propósito principal do comando `lscpu`?,"Exibir informações sobre a arquitetura da CPU, como número de CPUs, threads, cores, sockets e nós NUMA."
+De quais fontes o `lscpu` coleta as informações da CPU?,Principalmente de `sysfs` e `/proc/cpuinfo`.
+Como executar o `lscpu` para ver o resumo da arquitetura da CPU?,`lscpu`
+"Na saída do `lscpu`, o que 'Architecture' indica?","A arquitetura do processador (ex: x86_64, aarch64)."
+"Na saída do `lscpu`, o que 'CPU(s)' indica?",O número total de threads de CPU lógicas disponíveis para o sistema operacional.
+"Na saída do `lscpu`, o que 'On-line CPU(s) list' mostra?",A lista de CPUs que estão atualmente ativas e prontas para executar tarefas.
+"Na saída do `lscpu`, o que 'Thread(s) per core' indica?",O número de threads de hardware por núcleo (ex: 2 para Hyper-Threading).
+"Na saída do `lscpu`, o que 'Core(s) per socket' indica?",O número de núcleos físicos por processador (soquete).
+"Na saída do `lscpu`, o que 'Socket(s)' indica?",O número de soquetes de CPU físicos na placa-mãe.
+"Na saída do `lscpu`, o que 'NUMA node(s)' indica?","O número de nós de Acesso Não Uniforme à Memória, relevante em sistemas com múltiplos soquetes."
+"Na saída do `lscpu`, o que 'Vendor ID' mostra?","O fabricante da CPU (ex: GenuineIntel, AuthenticAMD)."
+"Na saída do `lscpu`, o que 'CPU family', 'Model' e 'Stepping' representam?",Identificadores específicos da versão e revisão do processador.
+"Na saída do `lscpu`, o que 'Byte Order' indica?",A ordem dos bytes usada pela CPU (ex: Little Endian ou Big Endian).
+"Qual opção do `lscpu` exibe informações detalhadas sobre os caches da CPU (L1, L2, L3)?",`-C` ou `--caches`
+"Qual opção do `lscpu` exibe uma saída estendida em formato legível por humanos, que pode ser personalizada?",`-e` ou `--extended`
+Como usar a opção `-e` para mostrar apenas as colunas de CPU e nó NUMA?,"`lscpu -e=cpu,node`"
+Qual opção do `lscpu` otimiza a saída para ser facilmente analisada por scripts?,`-p` ou `--parse`
+Qual a principal diferença de formatação na saída de cache entre `lscpu -p` e `lscpu` em versões mais antigas?,"Versões antigas usavam duas vírgulas como separador para caches; agora, a opção `-p` com uma lista de colunas usa dois pontos."
+Qual opção do `lscpu` inclui CPUs offline na saída das opções `-e` e `-p`?,`-a` ou `--all`
+"Qual opção do `lscpu` mostra os tamanhos (de cache, etc.) em bytes em vez de um formato legível por humanos (K, M)?",`-B` ou `--bytes`
+Qual opção do `lscpu` formata a saída em JSON?,`-J` ou `--json`
+Qual opção do `lscpu` exibe máscaras de CPU em hexadecimal (ex: ff) em vez de listas (ex: 0-7)?,`-x` ou `--hex`
+O que a flag 'Vulnerability' na saída do `lscpu` informa?,"O status de mitigação para várias vulnerabilidades de hardware conhecidas (ex: Meltdown, Spectre)."
+Como o `lscpu` se comporta em um ambiente virtualizado?,"Ele exibe a arquitetura da CPU como vista pelo sistema operacional convidado (guest), que pode ser diferente da do host físico."
+Qual opção do `lscpu` tenta exibir a topologia física real (do host) quando executado em um ambiente virtualizado?,`-y` ou `--physical`

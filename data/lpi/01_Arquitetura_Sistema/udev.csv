@@ -1,0 +1,20 @@
+pergunta,resposta
+Qual é a principal responsabilidade do `udev` no kernel Linux?,Gerenciar os arquivos de dispositivo no diretório `/dev` e manipular eventos de hardware.
+O que significa `udev`?,Userspace `/dev` (Dispositivo de espaço do usuário).
+O `udev` opera no espaço do kernel (kernel space) ou no espaço do usuário (user space)?,Ele roda no espaço do usuário.
+Como o `udev` é notificado sobre eventos de hardware (ex: conectar um pendrive)?,"O kernel envia um evento `uevent` através de um socket netlink, que o daemon `udevd` escuta."
+Onde ficam localizadas as regras do `udev`?,Principalmente no diretório `/etc/udev/rules.d/` para regras personalizadas e em `/usr/lib/udev/rules.d/` para regras padrão do sistema.
+Qual a finalidade dos arquivos de regras do `udev`?,"Permitem executar ações quando um dispositivo é detectado. Ações como: criar um nome de arquivo de dispositivo específico, definir permissões, criar links simbólicos ou executar um script."
+Como os arquivos de regras do `udev` são nomeados e por que isso é importante?,"Eles são nomeados com um número no início (ex: `10-local.rules`). O `udev` processa os arquivos em ordem alfanumérica, e a última regra que corresponde a um dispositivo 'vence'."
+Qual comando é usado para controlar o daemon `udevd` e consultar o banco de dados do `udev`?,`udevadm`
+Como usar `udevadm` para monitorar os eventos do kernel e do `udev` em tempo real?,`udevadm monitor`
+Como usar `udevadm` para consultar o banco de dados do `udev` sobre um dispositivo específico (ex: `/dev/sda`)?,`udevadm info -a -n /dev/sda`
+"Na sintaxe de uma regra `udev`, o que a chave `KERNEL==` faz?","Corresponde ao nome que o kernel deu ao dispositivo (ex: `sda`, `ttyUSB0`)."
+"Na sintaxe de uma regra `udev`, o que a chave `SUBSYSTEM==` faz?","Corresponde ao subsistema do dispositivo (ex: `block`, `net`, `usb`)."
+"Na sintaxe de uma regra `udev`, o que a chave `ATTR{...}==` faz?","Corresponde a um atributo do dispositivo no `sysfs` (ex: `ATTR{vendor}==\1234\""`)."""
+"Na sintaxe de uma regra `udev`, o que a chave `NAME=` faz?",Define o nome do arquivo de dispositivo a ser criado em `/dev`.
+"Na sintaxe de uma regra `udev`, o que a chave `SYMLINK+=` faz?",Cria um link simbólico adicional para o arquivo de dispositivo.
+"Na sintaxe de uma regra `udev`, o que a chave `RUN+=` faz?",Executa um programa externo quando a regra é correspondida.
+"Após criar ou modificar um arquivo de regras em `/etc/udev/rules.d/`, qual comando deve ser executado para que as alterações tenham efeito?",`udevadm control --reload-rules && udevadm trigger`
+Qual a relação entre `udev` e `sysfs`?,O `udev` usa as informações detalhadas sobre os dispositivos que são exportadas pelo `sysfs` para tomar decisões e aplicar regras.
+O que substituiu o `devfs` (sistema de arquivos de dispositivo) no Linux?,O `udev` em conjunto com o `tmpfs` montado em `/dev`.

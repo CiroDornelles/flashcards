@@ -1,0 +1,23 @@
+pergunta,resposta
+Qual o propósito do comando `journalctl`?,Consultar e exibir as mensagens de log do journal do systemd.
+"Como exibir todos os logs do boot atual, começando pelos mais antigos?",`journalctl`
+Qual opção do `journalctl` exibe os logs em ordem cronológica inversa (os mais novos primeiro)?,`-r` ou `--reverse`
+Como exibir os logs apenas do boot atual?,`journalctl -b` ou `journalctl -b 0`
+Como exibir os logs do boot anterior?,`journalctl -b -1`
+"Como listar todos os boots registrados no journal, com seus IDs e timestamps?",`journalctl --list-boots`
+Como exibir apenas as mensagens do kernel (equivalente a `dmesg`)?,`journalctl -k` ou `journalctl --dmesg`
+"Como seguir os logs em tempo real, exibindo novas mensagens assim que elas chegam?",`-f` ou `--follow`
+Como filtrar os logs para mostrar apenas as mensagens de uma 'unit' específica (ex: sshd.service)?,`journalctl -u sshd.service`
+Como filtrar os logs por um período de tempo (ex: desde ontem)?,`journalctl --since yesterday`
+Como filtrar os logs para mostrar apenas mensagens com uma certa prioridade (ex: erros e mais graves)?,`journalctl -p err` ou `journalctl -p 3`
+"Quais são os níveis de prioridade do journald, do mais grave para o menos grave?","emerg (0), alert (1), crit (2), err (3), warning (4), notice (5), info (6), debug (7)."
+Qual opção do `journalctl` formata a saída para ser mais detalhada (verbose)?,`-o verbose`
+Como verificar o espaço em disco usado pelos arquivos de journal?,`journalctl --disk-usage`
+Qual comando pode ser usado para remover arquivos de journal antigos até que o espaço usado seja menor que um valor (ex: 100M)?,`journalctl --vacuum-size=100M`
+Qual comando pode ser usado para remover arquivos de journal mais antigos que um certo tempo (ex: 2 semanas)?,`journalctl --vacuum-time=2weeks`
+Como filtrar os logs para mostrar mensagens de um executável específico (ex: /usr/sbin/sshd)?,`journalctl /usr/sbin/sshd`
+O que o comando `journalctl -b -1 -u nginx.service` mostra?,Mostra as mensagens da unidade 'nginx.service' que ocorreram durante o boot anterior.
+Qual opção do `journalctl` enriquece a saída com textos explicativos do catálogo de mensagens?,`-x` ou `--catalog`
+"Por que, por padrão, um usuário comum não consegue ver todos os logs do sistema?","Por questões de segurança. O acesso é geralmente restrito ao root e a usuários nos grupos 'systemd-journal', 'adm' ou 'wheel'."
+Onde os logs do journal são armazenados por padrão de forma persistente?,No diretório `/var/log/journal`.
+Onde os logs do journal são armazenados de forma não persistente (volátil)?,No diretório `/run/log/journal`.
